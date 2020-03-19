@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>npm安装任何包都报错的解决办法</title>
+    <link href="../../lib/bootstrap/css/bootstrap.css"" rel="stylesheet">
+    <!--[if lt IE 9]>
+        <script src="lib/html5shiv/html5shiv.min.js"></script>
+        <script src="lib/respond/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body style="background-image: url('../../images/bg.gif');">
+    <div class="container">
+       <h2>npm安装任何包都报错的解决办法</h2>
+       <h4>解决办法：</h4>
+       <h3>1、设置proxy 、https-proxy为null</h3>
+       <p class="">保证两个命令的返回值都为null（我的proxy返回不为null，所以导致报错）</p>
+       
+        <p class="well">
+            npm config get proxy<br>
+            npm config get https-proxy<br>
+            // 继续执行 设置proxy 、https-proxy为null<br>
+            npm config set proxy null<br>
+            npm config set https-proxy null<br>
+        </p>
+        <h3>2、设置</h3>
+        <p class="well">
+            npm config set registry http://registry.cnpmjs.org/
+        </p>
+        <h3>3、安装cnpm</h3>
+        <p class="well">
+            npm install -g cnpm --registry=https://registry.npm.taobao.org
+        </p>
+        <p>结束</p>
+    </div>
+</body>
+</html>

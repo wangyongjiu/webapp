@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>css->自定义滚动条</title>
+    <link href="../../lib/bootstrap/css/bootstrap.css"" rel="stylesheet">
+    <!--[if lt IE 9]>
+        <script src="lib/html5shiv/html5shiv.min.js"></script>
+        <script src="lib/respond/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body style="background-image: url('../../images/bg.gif');">
+    <div class="container">
+        <h1>css自定义滚动条</h1>
+        <h3>先介绍一下各个属性</h3>
+        <p class="well">
+            (1) ::-webkit-scrollbar ：滚动条整体部分，其中的属性有width,height,background,border等。<br>
+            (2) ::-webkit-scrollbar-button ：滚动条两端的按钮。可以用display:none让其不显示，也可以添加背景图片，颜色改变显示效果。<br>
+            (3) ::-webkit-scrollbar-track ：外层轨道。可以用display:none让其不显示，也可以添加背景图片，颜色改变显示效果。<br>
+            (4) ::-webkit-scrollbar-track-piece ：内层轨道，具体区别看下面gif图，需要注意的就是它会覆盖第三个属性的样式。<br>
+            (5) ::-webkit-scrollbar-thumb ：滚动条里面可以拖动的那部分<br>
+            (6) ::-webkit-scrollbar-corner ：边角，两个滚动条交汇处<br>
+            (7) ::-webkit-resizer ：两个滚动条交汇处用于拖动调整元素大小的小控件（基本用不上）
+        </p>
+        <div>
+            <h5>画图介绍以上每条含义：</h5>
+            <img src="../../images/web/web_1_1.jpg" alt="">
+        </div>
+
+        <h3>上面图片的原始代码（css主要部分的样式）</h3>
+        <p class="well">
+            <br>/*定义滚动条宽高及背景，宽高分别对应横竖滚动条的尺寸*/<br>
+            ::-webkit-scrollbar {
+                width: 10px; /*对垂直流动条有效*/
+                height: 10px; /*对水平流动条有效*/
+            }
+    
+            <br>/*定义滚动条的轨道颜色、内阴影及圆角*/<br>
+            ::-webkit-scrollbar-track{
+                -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+                background-color: rosybrown;
+                border-radius: 3px;
+            }
+    
+            <br>/*定义滑块颜色、内阴影及圆角*/<br>
+            ::-webkit-scrollbar-thumb{
+                border-radius: 7px;
+                -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+                background-color: #E8E8E8;
+            }
+    
+            <br>/*定义两端按钮的样式*/<br>
+            ::-webkit-scrollbar-button {
+                background-color:cyan;
+            }
+    
+            <br>/*定义右下角汇合处的样式*/<br>
+            ::-webkit-scrollbar-corner {
+                background:khaki;
+            }
+        </p><br>
+
+        <p>其余演示省略</p>
+        <p>结束</p>
+    </div>
+</body>
+</html>

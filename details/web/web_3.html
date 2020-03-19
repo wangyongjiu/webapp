@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue/cli4.0项目搭建</title>
+    <link href="../../lib/bootstrap/css/bootstrap.css"" rel="stylesheet">
+    <!--[if lt IE 9]>
+        <script src="../lib/html5shiv/html5shiv.min.js"></script>
+        <script src="../lib/respond/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .pad-10{
+            padding: 20px;
+        }
+    </style>
+</head>
+<body style="background-image: url('../../images/bg.gif');">
+    <div class="container">
+        <h2>vue cli4.0 快速搭建项目详解</h2>
+        <p class="panel panel-default pad-10">搭建项目之前，请确认好你自己已经安装过node, npm, vue cli。没安装的可以参考下面的链接安装。<br/>安装好node默认已经安装好npm了，所以不用单独安装了。</p>
+
+        <h3>1.进入一个目录，创建项目</h3>
+        <p class="well">对应命令： vue create project-one</p>
+        <p>
+            <img src="../../images/web/web_3_1.png" alt="">
+        </p>
+        <h3>2.我们这里选择手动配置</h3>
+        <p class="panel panel-default pad-10">按 ↓ 选择“Manually select features”，再按 Enter</p>
+        <p>
+            <img src="../../images/web/web_3_2.png" alt="">
+        </p>
+        <h3>3.选择你需要的配置项</h3>
+        <p class="panel panel-default pad-10">通过↑ ↓ 箭头选择你要配置的项，按 空格 是选中，按 a 是全选，按 i 是反选。具体每个配置项表示什么意思在下面会有说明。</p>
+        <p>
+            <img src="../../images/web/web_3_3.png" alt="">
+        </p>
+        <p>
+            <img src="../../images/web/web_3_4.png" alt="">
+        </p>
+        <p>
+            <img src="../../images/web/web_3_5.png" alt="">
+        </p>
+        <p>
+            <img src="../../images/web/web_3_6.png" alt="">
+        </p>
+
+        <p class="well">
+            ? Check the features needed for your project: (Press <space> to select, a to toggle all, i to invert selection)<br/>
+            >( ) Babel //转码器，可以将ES6代码转为ES5代码，从而在现有环境执行。 <br/>
+            ( ) TypeScript// TypeScript是一个JavaScript（后缀.js）的超集（后缀.ts）包含并扩展了 JavaScript 的语法，需要被编译输出为 JavaScript在浏览器运行<br/>
+            ( ) Progressive Web App (PWA) Support// 渐进式Web应用程序<br/>
+            ( ) Router // vue-router（vue路由）<br/>
+            ( ) Vuex // vuex（vue的状态管理模式）<br/>
+            ( ) CSS Pre-processors // CSS 预处理器（如：less、sass）<br/>
+            ( ) Linter / Formatter // 代码风格检查和格式化（如：ESlint）<br/>
+            ( ) Unit Testing // 单元测试（unit tests）<br/>
+            ( ) E2E Testing // e2e（end to end） 测试
+        </p>
+        <p>
+            <img src="../../images/web/web_3_7.png" alt="">
+        </p>
+
+        <p class="panel panel-default pad-10">
+            选完之后按 Enter。分别选择每个对应功能的具体包。选你擅长的，没有擅长的，就选使用广的，哈哈，方便咨询别人。
+        </p>
+
+        <h3>3.1 选择是否使用history router</h3>
+        <p>
+            <img src="../../images/web/web_3_8.png" alt="">
+        </p>
+        <p class="panel panel-default pad-10">
+            Vue-Router 利用了浏览器自身的hash 模式和 history 模式的特性来实现前端路由（通过调用浏览器提供的接口）。<br/>
+            我这里建议选n。这样打包出来丢到服务器上可以直接使用了，后期要用的话，也可以自己再开起来。<br/>
+            选yes的话需要服务器那边再进行设置。<br/>
+            Use history mode for router? (Requires proper server setup for index fallback in production)<br/>
+        </p>
+        <h3>3.2 选择css 预处理器</h3>
+        <p>
+            <img src="../../images/web/web_3_9.png" alt="">
+        </p>
+        <p class="panel panel-default pad-10">
+            我选择的是Sass/Scss(with dart-sass) <br/>
+            node-sass是自动编译实时的，dart-sass需要保存后才会生效。sass 官方目前主力推dart-sass 最新的特性都会在这个上面先实现。（该回答参考http://www.imooc.com/qadetail/318730）
+        </p>
+        <h3>3.3 选择Eslint代码验证规则</h3>
+        <p class="panel panel-default pad-10">
+            提供一个插件化的javascript代码检测工具，ESLint + Prettier //使用较多
+        </p>
+        <p>
+            <img src="../../images/web/web_3_10.png" alt="">
+        </p>
+        <h3>3.4 选择什么时候进行代码规则检测</h3>
+        <p>
+            <img src="../../images/web/web_3_11.png" alt="">
+        </p>
+        <p class="well">
+            ( ) Lint on save // 保存就检测<br/>
+            ( ) Lint and fix on commit // fix和commit时候检查<br/>
+            建议选择保存就检测，等到commit的时候，问题可能都已经积累很多了。
+        </p>
+        <h3>3.5 选择单元测试</h3>
+        <p>
+            <img src="../../images/web/web_3_12.png" alt="">
+        </p>
+        <p class="well">
+            > Mocha + Chai //mocha灵活,只提供简单的测试结构，如果需要其他功能需要添加其他库/插件完成。必须在全局环境中安装
+            Jest //安装配置简单，容易上手。内置Istanbul，可以查看到测试覆盖率，相较于Mocha:配置简洁、测试代码简洁、易于和babel集成、内置丰富的expect
+        </p>
+        <h3>3.6 选择如何存放配置</h3>
+        <p>
+            <img src="../../images/web/web_3_13.png" alt="">
+        </p>
+        <p class="well">
+            > In dedicated config files // 独立文件放置<br/>
+            In package.json // 放package.json里<br/>
+            如果是选择 独立文件放置，项目会有单独如下图所示的几件文件。
+        </p>
+        <p>
+            <img src="../../images/web/web_3_14.png" alt="">
+        </p>
+        <h2>3.7 是否保存当前配置</h2>
+        <p>
+            <img src="../../images/web/web_3_15.png" alt="">
+        </p>
+        <p class="panel panel-default pad-10">
+            键入N不记录，如果键入Y需要输入保存名字，如第2步所看到的我保存的名字为test。
+        </p>
+        <h3>4.等待创建项目</h3>
+        <p>
+            <img src="../../images/web/web_3_16.png" alt="">
+        </p>
+        <h3>5.执行它给出的命令，可以直接访问了</h3>
+        <p>
+            <img src="../../images/web/web_3_17.png" alt="">
+        </p>
+        <br/><br/>
+        <h4>未完待续~~~</h4>
+        <br/><br/>
+    </div>
+</body>
+</html>

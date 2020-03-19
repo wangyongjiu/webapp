@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>yarn安装vuecli脚手架失败(yarn安装脚手架成功却无法运行vue命令)</title>
+    <link href="../../lib/bootstrap/css/bootstrap.css"" rel="stylesheet">
+    <!--[if lt IE 9]>
+        <script src="../lib/html5shiv/html5shiv.min.js"></script>
+        <script src="../lib/respond/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body style="background-image: url('../../images/bg.gif');">
+    <div class="container">
+        <h2>yarn安装vuecli脚手架失败(yarn安装脚手架成功却无法运行vue命令)</h2>
+        <p class="well">以前用npm安装模块时,npm默认添加到环境变量,但是yarn没有,所以需要我们手动添加<br/>
+            --前提 已经执行yarn global add @vue/cli命令安装好脚手架,显示success
+        </p>
+        <h3>进入正题</h3>
+        <p class="well"">
+            1>我们现在命令框中输入 yarn global dir 查找yarn的全局目录,找到后复制到资源管理器的地址中,打开.<br/>
+            2>依次打开node_modules -> .bin,然后将它复制下来<br/>
+            3>然后设置环境变量,将刚才复制的地址添加进path中<br/>
+            4>编辑好环境变量后一路确定返回...然后重新打开cmd命令窗口执行vue命令
+        </p>
+        <h4>未完待续~~~</h4>
+    </div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue项目打包上传github并预览</title>
+    <link href="../../lib/bootstrap/css/bootstrap.css"" rel="stylesheet">
+    <!--[if lt IE 9]>
+        <script src="lib/html5shiv/html5shiv.min.js"></script>
+        <script src="lib/respond/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body style="background-image: url('../../images/bg.gif');">
+    <div class="container">
+        <h2>打包Vue项目</h2>
+        <p class="well">
+            npm run build
+        </p>
+        <p class="well">
+            实际上此命令就是执行build.js文件，将项目打包成静态资源<br>
+            此命令完成后，项目根目录下会多出一个dist文件夹，dist文件里面有：<br>
+            static文件下包括项目打包后的css、js、img、fonts(字体图标)。
+        </p>
+        <h3>项目资源无法加载</h3>
+        <p class="well">
+            点击index.html,浏览器显示该页面是空白的，打开控制台看到：<br>
+            这里看到index.html文件中没有加载任何css、js文件，解决方法：<br>
+            打开项目根目录　config　下的　index.js　文件，进行如下修改：<br>
+            将　assetsPublicPath: '/',　改为　assetsPublicPath: './',<br>
+            保存后重新'npm run build',在新生成的dist目录下点开index.html，这时页面结构正常显示出来了，但是页面字体图标和mock的数据无法正常加载。
+        </p>
+
+        <p>未完待续~~~</p>
+    </div>
+</body>
+</html>
