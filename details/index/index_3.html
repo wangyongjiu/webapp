@@ -7,6 +7,7 @@
     <title>ENVI工具界面介绍</title>
     <link href="../../lib/bootstrap/css/bootstrap.css"" rel="stylesheet">
     <link rel="stylesheet" href="../../css/index/index.css">
+    <link rel="stylesheet" href="../../lib/treeview/css/bootstrap-treeview.css">
     <!--[if lt IE 9]>
         <script src="../lib/html5shiv/html5shiv.min.js"></script>
         <script src="../lib/respond/respond.min.js"></script>
@@ -15,31 +16,18 @@
 <body style="background-image: url('../../images/bg.gif');">
     <div class="container">
         <h2>ENVI工具界面介绍</h2>
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        <h3>1.File文件菜单栏功能介绍</h3>
+        <div id="tree"></div>
+        <h3>2.Edit编辑菜单栏功能介绍</h3>
+        <div id="tree1"></div>
+        <h3>3.Display显示菜单栏功能介绍</h3>
+        <div id="tree2"></div>
+        <h3>4.Placemarks地名标注菜单栏功能介绍</h3>
+        <div id="tree3"></div>
+        <h3>5.Views视图菜单栏功能介绍</h3>
+        <div id="tree4"></div>
+        <h3>6.Help帮助菜单栏功能介绍</h3>
+        <div id="tree5"></div>
 
         <h3>1</h3>
         <p>
@@ -53,4 +41,394 @@
         <h4>未完待续~~~</h4>
     </div>
 </body>
+<script src="../../lib/jquery/jquery.min.js"></script>
+<script src="../../lib/treeview/js/bootstrap-treeview.js"></script>
+<script>
+    function getTree() {
+        var data = [
+            {
+                text:"Open 打开常规数据"
+            },
+            {
+                text: "Open As 打开特定数据（光学、雷达、热传感器...）",
+                nodes: [
+                    {
+                        text: "Optical Sensors 打开光学传感器"
+                    },
+                    {
+                        text: "Radar Sensors 打开雷达传感器"
+                    },
+                    {
+                        text: "Thermal Sensors 打开热传感器"
+                    },
+                    {
+                        text: "Digital Sensors 打开数字传感器"
+                    },
+                    {
+                        text: "GIS Formats 打开地理信息系统格式"
+                    },
+                    {
+                        text: "Generic Formats 打开通用格式"
+                    },
+                    {
+                        text: "Military Formats 打开军事模式"
+                    },
+                    {
+                        text: "LiDAR 打开激光雷达"
+                    },
+                    {
+                        text: "Series 打开系列"
+                    }
+                ]
+            },
+            {
+                text: "Open Resent 打开最近打开的数据"
+            },
+            {
+                text: "Open World Data 打开ENVI自带的一些全球基础数据",
+                nodes:[
+                    {
+                        text:'All Vectors 所有矢量'
+                    },
+                    {
+                        text:'Airports 机场'
+                    },
+                    {
+                        text:'Coastlines 海岸线'
+                    },
+                    {
+                        text:'Countries 国家'
+                    },
+                    {
+                        text:'Geographic Lines 地理线'
+                    },
+                    {
+                        text:'Lakes 湖泊'
+                    },
+                    {
+                        text:'Minor islands 小岛屿'
+                    },
+                    {
+                        text:'Populated Places 人口稠密的地方'
+                    },
+                    {
+                        text:'Ports 港口'
+                    },
+                    {
+                        text:'Rivers 河流'
+                    },
+                    {
+                        text:'Roads 道路'
+                    },
+                    {
+                        text:'States/Provinces 州/省'
+                    },
+                    {
+                        text:'Shaded Relief 地形阴影'
+                    },
+                    {
+                        text:'Elevation(GMTED2010) 高程'
+                    }
+                ]
+            },
+            {
+                text: "Open Remote Dataset... 打开远程数据集"
+            },
+            {
+                text: "Remote Connection Manger 远程连接管理"
+            },
+            {
+                text: "New 创建矢量、标记、感兴趣区、栅格分割等",
+                nodes:[
+                    {
+                        text:'Vector Layer 矢量层'
+                    },
+                    {
+                        text:'Annotation Layer 注记层'
+                    },
+                    {
+                        text:'Region of interest... 感兴趣的地区'
+                    },
+                    {
+                        text:'Build Raster Series 生成光栅系列'
+                    }
+                ]
+            },
+            {
+                text: "Views & Layers 将工作空间保存成json或者从json导回",
+                nodes:[
+                    {
+                        text:'Restore 恢复'
+                    },
+                    {
+                        text:'Save 保存'
+                    }
+                ]
+            },
+            {
+                text: "Save 保存"
+            },
+            {
+                text: "Save As 另存栅格格式为",
+                nodes:[
+                    {
+                        text:'Save As ENVI NITF TIFF DTED'
+                    },
+                    {
+                        text:'Save As ASCII... ASCII码'
+                    },
+                    {
+                        text:'Save As ArcView Raster...'
+                    },
+                    {
+                        text:'Save As CADRG... 扁弧形数字化光栅图形'
+                    },
+                    {
+                        text:'Save As CIB...'
+                    },
+                    {
+                        text:'Save As ER Mapper... 映射'
+                    },
+                    {
+                        text:'Save As ERDAS IMAGINE...'
+                    },
+                    {
+                        text:'Save As JPEG2000... jpeg格式'
+                    },
+                    {
+                        text:'Save As PCI...'
+                    }
+                ]
+            },
+            {
+                text: "Chip View To 抓图导出",
+                nodes:[
+                    {
+                        text:'File... 文件'
+                    },
+                    {
+                        text:'PowerPoint...  幻灯片演示文稿软件'
+                    },
+                    {
+                        text:'Geospatial PDF... 地理空间PDF'
+                    },
+                    {
+                        text:'Google Earth 谷歌地球'
+                    }
+                ]
+            },
+            {
+                text: "Export View To 导出试图",
+                nodes:[
+                    {
+                        text:'Geospatial PDF... 地理空间PDF'
+                    },
+                    {
+                        text:'Image File 图片文件'
+                    }
+                ]
+            },
+            {
+                text: "Data Manager 打开数据管理器"
+            },
+            {
+                text: "Close All Files 关闭所有文件"
+            },
+            {
+                text: "Preferences 设置偏好参数"
+            },
+            {
+                text: "Shortout Manager 快捷键管理"
+            },
+            {
+                text: "Exit 退出"
+            }
+        ];
+        return data;
+    }
+    $('#tree').treeview({expandIcon: 'glyphicon glyphicon-chevron-right',
+                        collapseIcon: 'glyphicon glyphicon-chevron-down',
+                        data: getTree()});
+
+    function getTree1(){
+        var data = [
+            {
+                text:'Undo 撤消'
+            },
+            {
+                text:'Redo 重做'
+            },
+            {
+                text:'Rename Item... 重命名项'
+            },
+            {
+                text:'Remove Selected Layer 删除选定层'
+            },
+            {
+                text:'Remove All Layers 删除所有层'
+            },
+            {
+                text:'Order Layer 订单层',
+                nodes:[
+                    {
+                        text:'Bring to Front 带到前面'
+                    },
+                    {
+                        text:'Send to Back 向后发送'
+                    },
+                    {
+                        text:'Bring Forward 提出'
+                    },
+                    {
+                        text:'Send Backward 向后发送'
+                    }
+                ]
+            }
+        ];
+        return data;
+    }
+    $('#tree1').treeview({expandIcon: 'glyphicon glyphicon-chevron-right',
+    collapseIcon: 'glyphicon glyphicon-chevron-down',
+    data: getTree1()});
+
+    function getTree2(){
+        var data = [
+            {
+                text:'Custom Stretch 自定义拉伸'
+            },
+            {
+                text:'Spectral Library Viewer 光谱库查看器'
+            },
+            {
+                text:'New Plot Window 新建绘图窗口'
+            },
+            {
+                text:'2D scatter Plot 二维散点图'
+            },
+            {
+                text:'Profiles 配置文件',
+                nodes:[
+                    {
+                        text:'Spectral 光谱的'
+                    },
+                    {
+                        text:'Horizontal 水平'
+                    },
+                    {
+                        text:'Vertical 垂直'
+                    },
+                    {
+                        text:'Arbitrary 任意的'
+                    },
+                    {
+                        text:'Series 系列'
+                    }
+                ]
+            },
+            {
+                text:'Band Animation 波段动画'
+            },
+            {
+                text:'Series/Animation Manager 系列/动画管理器'
+            },
+            {
+                text:'Full Motion Video 全动态视频'
+            },
+            {
+                text:'ENVI LiDAR ENVI激光雷达'
+            },
+            {
+                text:'Cursor Value 光标值'
+            },
+            {
+                text:'Porial 多孔'
+            },
+            {
+                text:'View Blend 视图混合'
+            },
+            {
+                text:'View Flicker 视图闪烁'
+            },
+            {
+                text:'View Swipe 视图滑动'
+            }
+        ];
+        return data;
+    }
+    $('#tree2').treeview({expandIcon: 'glyphicon glyphicon-chevron-right',
+    collapseIcon: 'glyphicon glyphicon-chevron-down',
+    data: getTree2()});
+
+    function getTree3(){
+        var data = [
+            {
+                text:'Add Placemark 添加地点标记'
+            },
+            {
+                text:'Placemarks Manager 地点标记管理器'
+            }
+        ];
+        return data;
+    }
+    $('#tree3').treeview({expandIcon: 'glyphicon glyphicon-chevron-right',
+    collapseIcon: 'glyphicon glyphicon-chevron-down',
+    data: getTree3()});
+
+    function getTree4(){
+        var data = [
+            {
+                text:'Create New Views 创建新视图'
+            },
+            {
+                text:'One View 一个视图'
+            },
+            {
+                text:'Two Vertical Views 两个垂直视图'
+            },
+            {
+                text:'Two Horizontal Views 两个水平视图'
+            },
+            {
+                text:'2x2 Views 2x2视图'
+            },
+            {
+                text:'3x3 Views 3x3视图'
+            },
+            {
+                text:'4x4 Views 4x4视图'
+            },
+            {
+                text:'Link Views 链接视图'
+            },
+            {
+                text:'Reference Map Link 参考地图链接'
+            }
+        ];
+        return data;
+    }
+    $('#tree4').treeview({expandIcon: 'glyphicon glyphicon-chevron-right',
+    collapseIcon: 'glyphicon glyphicon-chevron-down',
+    data: getTree4()});
+
+    function getTree5(){
+        var data = [
+            {
+                text:'Contents 目录'
+            },
+            {
+                text:'Shortcut List 快捷方式列表'
+            },
+            {
+                text:'Check for Updates 检查更新'
+            },
+            {
+                text:'About ENVI 关于ENVI'
+            }
+        ];
+        return data;
+    }
+    $('#tree5').treeview({expandIcon: 'glyphicon glyphicon-chevron-right',
+    collapseIcon: 'glyphicon glyphicon-chevron-down',
+    data: getTree5()});
+</script>
 </html>
