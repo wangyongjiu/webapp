@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>webpack学习笔记</title>
+    <link href="../../lib/bootstrap/css/bootstrap.css"" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/index/index.css">
+    <!--[if lt IE 9]>
+        <script src="lib/html5shiv/html5shiv.min.js"></script>
+        <script src="lib/respond/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body style="background-image: url('../../images/bg.gif');">
+    <div class="container">
+        <h3>1.什么是webpack</h3>
+        <div class="well">
+            <b>
+                webpack可以看作是模块打包机：他做的事情是，分析你的项目结构，
+                找到javascript模块以及其他的一些浏览器不能直接运行的拓展语言（Scss TypScript），
+                并将其打包为合适的格式以浏览器使用。
+            </b>
+        </div>
+        <div>
+            <img src="../../images/web/web_5_1.png" alt="" class="img-responsive">
+        </div>
+        <h4>可以做的事情</h4>
+        <div class="well">代码转换、文件优化、代码分割、模块合并、自动刷新、代码校验、自动发布</div>
+        <h3>2.需要提前掌握的内容</h3>
+        <div class="well">需要node基础，以及npm的使用，掌握es6语法</div>
+        <h3>3.本课程最终掌握的webpack哪些内容</h3>
+        <div class="well">
+            webpack常见配置、webpack高级配置、webpack优化策略、ast抽象语法树、webpack中的Tapable、掌握webpack流程、手写webpack、手写webpack中常见的loader、手写常见的plugin
+        </div>
+        <h3>4.开始操作</h3>
+        <div class="well"><b>安装本地webpack webpack-cli -D  ‘-D’指表示上线的时候不需要这两个包</b></div>
+        <div class="well"><b>yarn init -y 初始化依赖，然后执行 yarn add webpack webpack-cli -D</b></div>
+        <div class="well"><b>在根目录新建一个src文件夹，在src文件夹下新建一个index.js文件并随意书写点内容如下图：</b></div>
+        <div>
+            <img src="../../images/web/web_5_4.png" alt="" class="img-responsive">
+        </div>
+        <div class="alert alert-danger">*注意：webpack可以进行0配置（但是很弱）</div>
+        <div class="well">
+            <b>执行：npx webpack（webpack5.0之后支持的语法） 就可以直接进行打包<br/>
+                执行命令默认回去找node_modules文件夹下的.bin目录下的webpack.cmd文件,然后根据判断条件执行红框的命令
+            </b><br/>
+            <a href="http://www.ruanyifeng.com/blog/2019/02/npx.html" style="font-size: 18px;">npm 从5.2版开始，增加了 npx 命令。（阮一峰网络日志详解npx）</a>
+        </div>
+        <div>
+            <img src="../../images/web/web_5_2.png" alt="" class="img-responsive">
+        </div>
+        <div class="well"><b>然后在webpack.js文件中会执行webpackz-cli，如果安装了就执行，没有就提示安装webpack-cli</b></div>
+        <div>
+            <img src="../../images/web/web_5_3.png" alt="" class="img-responsive">
+        </div>
+        <div class="well"><b>默认结果</b><i>会生成dist文件夹，里面包含main.js文件,新建一个html文件引用main.js,就可以在本地直接运行了</i></div>
+
+        <div class="well">再新建一个a.js，里面用node语法写，如下图</div>
+        <div>
+            <img src="../../images/web/web_5_5.png" alt="" class="img-responsive">
+        </div>
+        <div class="well">index.js里面也更换成node写法，如下图，并执行npx webpack命令打包</div>
+        <div>
+            <img src="../../images/web/web_5_6.png" alt="" class="img-responsive">
+        </div>
+        <div class="well">新建一个html文件引用打包出来的main.js,竟然也可以在本地直接运行了</div>
+        <div class="alert alert-danger"><b>*结论：webpack可以以当前index.js文件为准，查找所有require进来的文件，帮我们解决node环境中的文件依赖（require）问题，并生成一个文件</b></div>
+        <div class="well">但是打包出来的总是dist文件夹和main.js文件，接下来webpack配置修改开始,手动配置webpack，默认配置文件的名字是<a href="#a">webpack.config.js(必须是这个名字,点击看原因)文件</a> ，所以可以自己新建一个这个名字的文件进行手动配置，写法用node语法写，然后执行npx webpack，写法及结果如下图：</div>
+        <div>
+            <img src="../../images/web/web_5_7.png" alt="" class="img-responsive">
+        </div>
+        <div class="well" id="a">webpack.config.js文件名字原因（ <b>后期webpack.config.js名字是可以修改的</b> ）</div>
+        <div>
+            <img src="../../images/web/web_5_9.png" alt="" class="img-responsive">
+        </div>
+        <div>
+            <img src="../../images/web/web_5_8.png" alt="" class="img-responsive">
+        </div>
+        <div class="well">
+            打包好的文件夹只能在本地运行，因此现在要安装一个webpack-dev-server服务器,让项目运行在本地服务器上
+        </div>
+        <div class="well">
+            控制台执行yarn add webpack-dev-server -D 安装完毕执行 npx webpack-dev-server 运行，
+            但他不会执行dist文件夹下的文件，而是运行静态目录，所以我们需要在webpack.config.js配置文件加上开发服务器的配置
+        </div>
+        <div>
+            <img src="../../images/web/web_5_10.png" alt="" class="img-responsive">
+        </div>
+        <div class="well">
+            但是我不能每次先打包好在自己新建index.html去手动引用，因此，需要用插件实现自动生成html去自动引用。
+            首先要在src源文件夹下新建index.html作为打包之后的模板，执行 <b>yarn add html-webpack-plugin</b> 
+            然后在webpack.config.js引用HtmlWebpackPlugin插件
+        </div>
+        <div>
+            <img src="../../images/web/web_5_11.png" alt="" class="img-responsive">
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <br/>
+        <p>未完待续~~~</p>
+    </div>
+</body>
+</html>
