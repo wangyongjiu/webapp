@@ -31,7 +31,8 @@
         <div class="well">需要node基础，以及npm的使用，掌握es6语法</div>
         <h3>3.本课程最终掌握的webpack哪些内容</h3>
         <div class="well">
-            webpack常见配置、webpack高级配置、webpack优化策略、ast抽象语法树、webpack中的Tapable、掌握webpack流程、手写webpack、手写webpack中常见的loader、手写常见的plugin
+            webpack常见配置、webpack高级配置、webpack优化策略、ast抽象语法树、webpack中的Tapable、
+            掌握webpack流程、手写webpack、手写webpack中常见的loader、手写常见的plugin
         </div>
         <h3>4.开始操作</h3>
         <div class="well"><b>安装本地webpack webpack-cli -D  ‘-D’指表示上线的时候不需要这两个包</b></div>
@@ -43,8 +44,7 @@
         <div class="alert alert-danger">*注意：webpack可以进行0配置（但是很弱）</div>
         <div class="well">
             <b>执行：npx webpack（webpack5.0之后支持的语法） 就可以直接进行打包<br/>
-                执行命令默认回去找node_modules文件夹下的.bin目录下的webpack.cmd文件,然后根据判断条件执行红框的命令
-            </b><br/>
+                执行命令默认回去找node_modules文件夹下的.bin目录下的webpack.cmd文件,然后根据判断条件执行红框的命令</b><br/>
             <a href="http://www.ruanyifeng.com/blog/2019/02/npx.html" style="font-size: 18px;">npm 从5.2版开始，增加了 npx 命令。（阮一峰网络日志详解npx）</a>
         </div>
         <div>
@@ -65,8 +65,15 @@
             <img src="../../images/web/web_5_6.png" alt="" class="img-responsive">
         </div>
         <div class="well">新建一个html文件引用打包出来的main.js,竟然也可以在本地直接运行了</div>
-        <div class="alert alert-danger"><b>*结论：webpack可以以当前index.js文件为准，查找所有require进来的文件，帮我们解决node环境中的文件依赖（require）问题，并生成一个文件</b></div>
-        <div class="well">但是打包出来的总是dist文件夹和main.js文件，接下来webpack配置修改开始,手动配置webpack，默认配置文件的名字是<a href="#a">webpack.config.js(必须是这个名字,点击看原因)文件</a> ，所以可以自己新建一个这个名字的文件进行手动配置，写法用node语法写，然后执行npx webpack，写法及结果如下图：</div>
+        <div class="alert alert-danger">
+            <b>*结论：webpack可以以当前index.js文件为准，查找所有require进来的文件，
+            帮我们解决node环境中的文件依赖（require）问题，并生成一个文件</b>
+        </div>
+        <div class="well">
+            但是打包出来的总是dist文件夹和main.js文件，接下来webpack配置修改开始,手动配置webpack，默认配置文件的名字是
+            <a href="#a">webpack.config.js(必须是这个名字,点击看原因)文件</a> ，
+            所以可以自己新建一个这个名字的文件进行手动配置，写法用node语法写，然后执行npx webpack，写法及结果如下图：
+        </div>
         <div>
             <img src="../../images/web/web_5_7.png" alt="" class="img-responsive">
         </div>
@@ -80,6 +87,7 @@
         <div class="well">
             打包好的文件夹只能在本地运行，因此现在要安装一个webpack-dev-server服务器,让项目运行在本地服务器上
         </div>
+        <h3>添加前端服务器</h3>
         <div class="well">
             控制台执行yarn add webpack-dev-server -D 安装完毕执行 npx webpack-dev-server 运行，
             但他不会执行dist文件夹下的文件，而是运行静态目录，所以我们需要在webpack.config.js配置文件加上开发服务器的配置
@@ -87,6 +95,7 @@
         <div>
             <img src="../../images/web/web_5_10.png" alt="" class="img-responsive">
         </div>
+        <h3>html插件的配置和使用</h3>
         <div class="well">
             但是我不能每次先打包好在自己新建index.html去手动引用，因此，需要用插件实现自动生成html去自动引用。
             首先要在src源文件夹下新建index.html作为打包之后的模板，执行 <b>yarn add html-webpack-plugin</b> 
@@ -95,11 +104,164 @@
         <div>
             <img src="../../images/web/web_5_11.png" alt="" class="img-responsive">
         </div>
+        <h3>css-loader的配置和使用</h3>
+        <div class="well">
+            希望css也用模块的方式引用<br/>
+            新建一个index.css在src文件夹下，在index.js中require('./index.css');在development模式下，执行 npm run dev 会报错,因此，
+            需要在配置模块解析css( <b>语法可能会有更新，请随时关注webpack最新语法</b> )
+        </div>
+        <div>
+            <img src="../../images/web/web_5_12.png" alt="" class="img-responsive">
+        </div>
+        <div class="well">
+            安装cssloader 执行：  <b>yarn add css-loader style-loader -D</b> <br/>
+            配置css-loader
+        </div>
+        <div>
+            <img src="../../images/web/web_5_13.png" alt="" class="img-responsive">
+        </div>
+        <div class="well">结果显示</div>
+        <div>
+            <img src="../../images/web/web_5_14.png" alt="" class="img-responsive">
+        </div>
+        <div class="well">
+            安装插件使插入到head标签中的样式打包成一个引用的css文件引入的方式（抽离css插件）<br/>
+            <b>yarn add mini-css-extract-plugin -D</b>webpack4.0之后最新插件名<br/>
 
-
-
-
-
+        </div>
+        <div>
+            <img src="../../images/web/web_5_16.png" alt="" class="img-responsive">
+        </div>
+        <div>
+            <img src="../../images/web/web_5_17.png" alt="" class="img-responsive">
+        </div>
+        <div class="well">编译less 安装less <b>yarn add less less-loader -D</b>   less-loader会调用less less会解析@import语法和解析css文件中路径问题</div>
+        <div>
+            <img src="../../images/web/web_5_15.png" alt="" class="img-responsive">
+        </div>
+        <div class="well">
+            加css前缀的loader 执行 <b>yarn add postcss-loader autoprefixer</b><br/>
+            插件引入，并配置一下，打包，竟然报错，这里我们还要新建一个名叫postcss.config.js文件，并写上配置，因为这个插件在调用时会找postcss.config.js配置文件
+        </div>
+        <div>
+            <img src="../../images/web/web_5_18.png" alt="" class="img-responsive">
+        </div>
+        <div>
+            <img src="../../images/web/web_5_19.png" alt="" class="img-responsive">
+        </div>
+        <div class="well">
+            生产模式下压缩css文件内容 <b>yarn add optimize-css-assets-webpack-plugin -D</b><br/>
+            在webpack.config.js中require,并配置
+        </div>
+        <div>
+            <img src="../../images/web/web_5_20.png" alt="" class="img-responsive">
+        </div>
+        <div class="well">
+            生产模式下压缩css文件内容 <b>yarn add terser-webpack-plugin -D</b><br/>
+            在webpack.config.js中require,并配置
+        </div>
+        <div class="well">
+            在js文件中书写es6语法，对es6语法进行es5的转换<br/>
+            <b>yarn add babel-loader @babel/core @bable/preset-env -D</b><br/>
+            @babel/core是核心模块 @bable/preset-env 负责语法转换<br/>
+            配置babel<br/>
+            再执行打包，结果如下：es6语法转化成了es5
+        </div>
+        <div>
+            <img src="../../images/web/web_5_22.png" alt="" class="img-responsive">
+        </div>
+        <div>
+            <img src="../../images/web/web_5_21.png" alt="" class="img-responsive">
+        </div>
+        <div class="well">
+            <b>yarn add @babel/plugin-proposal-class-properties -D</b> es7 ---> es5的loader插件
+        </div>
+        <div>
+            <img src="../../images/web/web_5_24.png" alt="" class="img-responsive">
+        </div>
+        <div>
+            <img src="../../images/web/web_5_23.png" alt="" class="img-responsive">
+        </div>
+        <div class="well">
+            <b>yarn add @babel/runtime 安装</b><br/>@babel/runtime是一个包含Babel模块化运行时帮助程序和的版本的库regenerator-runtime。
+            它打算dependency与Babel插件一起用作运行时@babel/plugin-transform-runtime。请查看该软件包中的文档以进行使用。
+            有时Babel可能会在输出中注入一些跨文件相同的代码，因此有可能被重用。<br/>
+            <b>yarn add @babel/polyfill 安装语法转换补丁文件</b>那个文件需要就在那个文件require('@babel/polyfill')
+        </div>
+        <div class="well">
+            js规范校验器 安装 <b>yarn add eslint eslint-loader -D</b>配置如下：
+            然后在eslint官网上进demo菜单，在最下面下载.eslintrc.json文件  并给文件名前面添加一点<br/>
+            强制在babel-loader之前执行<br/>
+        </div>
+        <div>
+            <img src="../../images/web/web_5_25.png" alt="" class="img-responsive">
+        </div>
+        <div class="alert alert-danger">
+            <b>结果可能出现很多语法问题，因此在这里不多解释，平时书写代码时慎用，不然会有许多小不重要的bug</b>
+        </div>
+        <h3>第三方模块的使用</h3>
+        <div class="well">
+            例如：jquery的使用  安装<b>yarn add jquery</b>
+            <br/>安装<b>yarn add expose-loader</b>在index.js中import 的写法
+        </div>
+        <div>
+            <img src="../../images/web/web_5_26.png" alt="" class="img-responsive">
+        </div>
+        <div class="well">
+            或者是配置卸载配置文件中
+        </div>
+        <div>
+            <img src="../../images/web/web_5_27.png" alt="" class="img-responsive">
+        </div>
+        <div>
+            <img src="../../images/web/web_5_28.png" alt="" class="img-responsive">
+        </div>
+        <div class="well">
+            全局注入$(不是挂载在window上)
+        </div>
+        <div>
+            <img src="../../images/web/web_5_30.png" alt="" class="img-responsive">
+        </div>
+        <div>
+            <img src="../../images/web/web_5_29.png" alt="" class="img-responsive">
+        </div>
+        <div class="well">
+            打包时不要将jquery打包配置如下：
+        </div>
+        <div>
+            <img src="../../images/web/web_5_31.png" alt="" class="img-responsive">
+        </div>
+        <h3>webpack图片处理</h3>
+        <div class="well">
+            引用图片情况：<br/>
+            1.在js中创造图片出来<br/>
+            2.在css文件中引用 background('url')<br/>
+            3.在html中直接引用 < img src="" alt="" >
+        </div>
+        <div class="well">
+            <b>安装 yarn add file-loader -D</b> file-loader的作用是：默认会在内部生成一张图片 到打包好的文件夹下，把生成的图片的名字返回回来
+        </div>
+        <div>
+            <img src="../../images/web/web_5_32.png" alt="" class="img-responsive">
+        </div>
+        <div>
+            <img src="../../images/web/web_5_33.png" alt="" class="img-responsive">
+        </div>
+        <div class="well">
+            在css中引用图片就不用再安装loader，因为css-loader就会把css文件中的图片引入转化为require的方式，并解析
+        </div>
+        <div class="well">
+            安装<b>yarn add html-withimh-loader -D</b>解决在html文件中引用图片的问题，配置如下：
+        </div>
+        <div>
+            <img src="../../images/web/web_5_34.png" alt="" class="img-responsive">
+        </div>
+        <div class="well">
+            安装<b>yarn add url-loader</b>  做一个限制，当图片小于限制时，可以用base64来转化
+        </div>
+        <div>
+            <img src="../../images/web/web_5_35.png" alt="" class="img-responsive">
+        </div>
 
 
 
