@@ -262,16 +262,112 @@
         <div>
             <img src="../../images/web/web_5_35.png" alt="" class="img-responsive">
         </div>
-
-
-
-
-
-
-
-
-
-
+        <h3>
+            静态资源分类
+        </h3>
+        <div class="well">
+            静态资源分类的目的时将所有的img、js、css等打包到对应的文件夹下方便管理
+        </div>
+        <div>
+            <img src="../../images/web/web_5_36.png" alt="" class="img-responsive">
+        </div><br/>
+        <div>
+            <img src="../../images/web/web_5_37.png" alt="" class="img-responsive">
+        </div>
+        <div class="well">
+            给所有引用资源加统一的输出路径配置( <b>注意图片路径问题</b> )
+        </div>
+        <div>
+            <img src="../../images/web/web_5_38.png" alt="" class="img-responsive">
+        </div>
+        <h3>多页面应用程序打包</h3>
+        <div class="well">
+            新建文件夹 <b>yarn init -y</b> 初始化
+            <b>yarn add webpack webpack-cli -D</b>
+            新建src文件夹及其他文件和webpack.config.js基本配置截图如下：<br>
+            之后执行 <b>npx webpack看结果</b>
+        </div>
+        <div>
+            <img src="../../images/web/web_5_39.png" alt="" class="img-responsive">
+        </div>
+        <div class="well">
+            安装<b>yarn add html-webpack-plugin -D</b> html-webpack-plugin作用是：用模板生成html，并且将js自动引入
+        </div>
+        <div>
+            <img src="../../images/web/web_5_40.png" alt="" class="img-responsive">
+        </div>
+        <h3>配置source-map</h3>
+        <div class="well">
+            什么是source-map： sourcemap就是为了解决处理过的生产环境中的代码出现bug，
+            调试的时候只能定位到压缩处理后的代码的位置，无法定位到开发环境中的源代码。
+            简单理解，就是构建了处理前的代码和处理后的代码之间的桥梁。主要是方便开发人员的错误定位。<br/>
+            在module.exports的配置（四种配置），如下：然后打包看代码及报错显示
+        </div>
+        <div>
+            <img src="../../images/web/web_5_41.png" alt="" class="img-responsive">
+        </div>
+        <div>
+            <img src="../../images/web/web_5_42.png" alt="" class="img-responsive">
+        </div>
+        <div>
+            <img src="../../images/web/web_5_43.png" alt="" class="img-responsive">
+        </div>
+        <h3>开启代码实时监控</h3>
+        <div>
+            <img src="../../images/web/web_5_44.png" alt="" class="img-responsive">
+        </div>
+        <h3>webpack小插件</h3>
+        <div class="well">
+            1）clean-webpack-plugin 第三方 2）copyWebpackPlugin 第三方复制插件 3）bannerPlugin webpack内置插件 内置插件在使用前要先require(webpack) 版权声明插件<br/>
+            <b>yarn add clean-webpack-plugin copy-webpack-plugin -D</b>
+        </div>
+        <div>
+            <img src="../../images/web/web_5_45.png" alt="" class="img-responsive">
+        </div>
+        <div>
+            <img src="../../images/web/web_5_46.png" alt="" class="img-responsive">
+        </div><br>
+        <div>
+            <img src="../../images/web/web_5_47.png" alt="" class="img-responsive">
+        </div><br>
+        <div>
+            <img src="../../images/web/web_5_49.png" alt="" class="img-responsive">
+        </div>
+        <div>
+            <img src="../../images/web/web_5_48.png" alt="" class="img-responsive">
+        </div>
+        <h3>webpack跨域问题</h3>
+        <div class="well">
+            webpack默认自带express框架的
+            新建server.js文件，配置如下：<br/>
+            访问http://localhost:3000/api/user 可以得到返回数据
+        </div>
+        <div>
+            <img src="../../images/web/web_5_50.png" alt="" class="img-responsive">
+        </div>
+        <div>
+            <img src="../../images/web/web_5_51.png" alt="" class="img-responsive">
+        </div>
+        <div>
+            <img src="../../images/web/web_5_52.png" alt="" class="img-responsive">
+        </div><br>
+        <div>
+            <img src="../../images/web/web_5_54.png" alt="" class="img-responsive">
+        </div>
+        <div>
+            <img src="../../images/web/web_5_53.png" alt="" class="img-responsive">
+        </div>
+        <h3>webpack中的resolve配置</h3>
+        <div class="well">
+            Webpack 在启动后会从配置的入口模块出发找出所有依赖的模块，
+            Resolve 配置 Webpack 如何寻找模块所对应的文件。 
+            Webpack 内置 JavaScript 模块化语法解析功能，
+            默认会采用模块化标准里约定好的规则去寻找，
+            但你也可以根据自己的需要修改默认的规则。
+        </div>
+        <div>
+            <img src="../../images/web/web_5_55.png" alt="" class="img-responsive">
+        </div>
 
 
 
