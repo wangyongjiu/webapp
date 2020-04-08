@@ -391,6 +391,75 @@
             <img src="../../images/web/web_5_59.png" alt="" class="img-responsive">
         </div>
         <h3>webpack优化手段</h3>
+        <div class="well">
+            1. noParse:/正则表达式/ webpack配置优化<br/>
+            2. new webpack.IgnorePlugin(/正则表达式/,/正则表达式/) webpack内置插件优化<br/>
+            3. <b>动态链接库 DLLPlugin</b><br/>
+            4. happypack多线程打包,本质是happypack/loader去打包的<br/>
+            5. webpack自带优化<br/>
+            6. 多页面打包抽离公共代码
+        </div>
+        <div class="well">
+            首先新建一个SEO文件夹用来演示webpack优化，执行命令：<br/>
+            <b>yarn add webpack webpack-cli html-webpack-plugin @babel/core babel-loader @babel/preset-env @babel/preset-react jquery moment -D</b><br/>
+            目录搭建及配置：
+        </div>
+        <div>
+            <img src="../../images/web/web_5_60.png" alt="" class="img-responsive">
+            <img src="../../images/web/web_5_61.png" alt="" class="img-responsive">
+            <img src="../../images/web/web_5_62.png" alt="" class="img-responsive"><br/>
+            <img src="../../images/web/web_5_63.png" alt="" class="img-responsive">
+            <img src="../../images/web/web_5_64.png" alt="" class="img-responsive"><br/>
+            可以使打包出来的代码支持各种引用方式，这个配置卸载新建的webpack.config.react.js中，打包的是test.js,test.js是自己写的，这里相当于把test.js当成动态链接库打包
+            <img src="../../images/web/web_5_65.png" alt="" class="img-responsive"><br/>
+            <b>DLLPlugin内置插件使用</b>
+            <p>mainfest.json文件我们称之为任务清单，目的：把一些第三方库提前打包出一个文件，然后用引入的方式引入，这里是以react react-dom为例打包</p>
+            <img src="../../images/web/web_5_66.png" alt="" class="img-responsive">
+            <p>使用动态链接库</p>
+            <img src="../../images/web/web_5_67.png" alt="" class="img-responsive">
+        </div><br/>
+        <div>
+            js多线程打包，css打包基本上一致，此处省略
+            <img src="../../images/web/web_5_68.png" alt="" class="img-responsive">
+        </div>
+        <div class="well">
+            在生产模式下，以 <b>import xxx from 'xxx'</b> 方式引入的代码，会默认去掉没有用到的方法及代码，1、并把引用的代码相当于直接拷贝在当前文件里<br/>
+            学名：<b>tree-shaking</b> 树的摇晃 白没用的代码自动删除掉<br/>
+            以 <b>require</b> 的方式引入的则不行，不会删除没用代码,还有就是es6语法会把require返回的结果先挂在default上<br/>
+            其他：<b>scope hosting</b> 2、作用域提升，在webpack中自动省略可以简化的代码
+        </div>
+        <div>
+            <b>多页面打包抽离公共代码配置:</b>1.第一个是抽离自己编写代码的公共代码。2.第二个是抽离第三方插件的代码，例如jquery。这样就做到了分别抽离
+            <img src="../../images/web/web_5_69.png" alt="" class="img-responsive">
+        </div>
+        <h3>~~~懒加载~~~</h3>
+        <div class="well">
+            下图中import() 语法就是懒加载的实现原理，打包的时候就会生成对应引用的文件，当按钮点击时就会直接调用该文件<br/>
+            像vue、react等框架都是使用的这个方法实现的懒加载
+        </div>
+        <div>
+            <img src="../../images/web/web_5_70.png" alt="" class="img-responsive">
+        </div>
+        <h3>~~~热更新~~~</h3>
+        <div class="well">
+            当服务器运行时，每当我们修改源代码时都会刷新页面，不友好，因此需要热更新
+        </div>
+        <div>
+            <img src="../../images/web/web_5_71.png" alt="" class="img-responsive">
+            <img src="../../images/web/web_5_72.png" alt="" class="img-responsive">
+        </div>
+        <h3>Tapable</h3>
+        <div class="well">
+            webpack本质上是一种时间流的机制，它的工作流程就是将各个插件串联起来，而实现这一切的核心就是Tapable，Tapable有点类似于nodejs的events库，核心原理也就是依赖于发布订阅模式。
+        </div>
+        <div>
+            <img src="../../images/web/web_5_73.png" alt="" class="img-responsive">
+        </div>
+
+
+
+        
+
 
 
 
