@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>0 errors and 2 warnings potentially fixable with the `--fix` option</title>
+    <title>webpack字写插件学习</title>
     <link href="../../lib/bootstrap/css/bootstrap.css"" rel="stylesheet">
     <link rel="stylesheet" href="../../css/index/index.css">
     <!--[if lt IE 9]>
@@ -14,18 +14,21 @@
 </head>
 <body style="background-image: url('../../images/bg.gif');">
     <div class="container">
-        <h2>0 errors and 2 warnings potentially fixable with the `--fix` option.错误问题解决</h2>
-        <h4 class="panel panel-default pad-10">1.报错截图</h4>
-        <div>
-            <img src="../../images/web/web_4_1.png" alt="" class="img-responsive">
-        </div>
-        <h4 class="panel panel-default pad-10">2.解决方法截图</h4>
+        <h3>1、什么是Tapable</h3>
         <div class="well">
-            在packages.json文件中的eslintConfig配置中注释掉"@vue/standard" 更换 "lint": "eslint --fix --ext .js,.vue src"
+            webpack本质上是一种时间流的机制，它的工作流程就是将各个插件串联起来，而实现这一切的核心就是Tapable，Tapable有点类似于nodejs的events库，核心原理也就是依赖于发布订阅模式。
         </div>
         <div>
-            <img src="../../images/web/web_4_2.png" alt="" class="img-responsive">
+            <img src="../../images/web/web_6_1.png" alt="" class="img-responsive">
         </div>
+        
+
+
+        
+
+
+
+
         <br/>
         <p>未完待续~~~</p>
     </div>

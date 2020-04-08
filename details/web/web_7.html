@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue样式库打包上传npm</title>
+    <link href="../../lib/bootstrap/css/bootstrap.css"" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/index/index.css">
+    <!--[if lt IE 9]>
+        <script src="lib/html5shiv/html5shiv.min.js"></script>
+        <script src="lib/respond/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body style="background-image: url('../../images/bg.gif');">
+    <div class="container">
+        <h3>1、初始化一个vue项目</h3>
+        <div class="well">
+            <b>vue create XXX</b> 选择Manually select features ---> 选上 Babel Linter / Formatter CSS Pre-processors 
+            ---> 选择 Sass/SCSS(with node-sass) ---> 选择 ESLint + Standard config ---> 确定 ---> In package.json --->选择no
+        </div>
+        <div class="well">
+            （参照elementUI）在项目目录下新建packages文件夹。（用于存放所有的组件，最终目的就是将packages文件夹打包）将src文件夹改名为examples。（用于进行测试）
+            这样原来的项目将无法正常启动，因此，在项目根目录下新建一个vue.config.js配置文件（用于配置vue的配置文件）,配置如下：
+            将写好的vue样式组件放到packages文件夹下，再在packages文件夹下新建一个index.js文件（用于整个插件库包的入口），配置如下：
+            然后在main.js文件中引入如下图：
+
+        </div>
+        <div>
+            <img src="../../images/web/web_7_1.jpg" alt="" class="img-responsive">
+            <img src="../../images/web/web_7_2.png" alt="" class="img-responsive">
+            <img src="../../images/web/web_7_3.png" alt="" class="img-responsive">
+        </div>
+        <div class="well">
+            构建成库，首先在 packages文件中scripts配置下新加一条命令 <b>"lib":"vue-cli-service build --target lib packages/index.js"</b> packages/index.js为指定打包文件入口
+            执行 yarn lib 就会打包出dist文件夹了,然后将packages.json文件夹下private改为false,新加"main":"dist/wyj-button.umd.min.js"配置，后面的名字是打包生成的文件的名字的路径
+            新建.npmignore文件，配置如下：
+        </div>
+        <div>
+            <img src="../../images/web/web_7_4.jpg" alt="" class="img-responsive">
+        </div>
+        <div class="alert alert-danger">
+            *注意：每次上传己得版本要升级
+        </div>
+        <div class="well">
+            在新项目中安装好，在main.js中当插件使用就好了 import XXX from 'wyj-button' import 'wyj-button/dist/wyj-button.css'  Vue.use(XXx)
+        </div>
+
+
+        <br/>
+        <p>未完待续~~~</p>
+    </div>
+</body>
+</html>
