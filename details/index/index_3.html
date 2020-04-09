@@ -69,9 +69,7 @@
         <div>
             <img src="../../images/index/envi/27.png" alt="" class="img-responsive">
         </div>
-        <div class="well">
-            几何校正
-        </div>
+        <h3>2-1几何校正</h3>
         <div>
             <img src="../../images/index/envi/28.png" alt="" class="img-responsive">
         </div>
@@ -105,7 +103,7 @@
             2、点要分布均匀<br/>
             3、采集控制点  一般35个以上点
         </div>
-        <h3>影像融合、图像融合</h3>
+        <h3>2-2影像融合、图像融合</h3>
         <div>
             <img src="../../images/index/envi/37.png" alt="" class="img-responsive">
             <b>包含各种算法在里面</b>
@@ -119,7 +117,7 @@
             <img src="../../images/index/envi/42.png" alt="" class="img-responsive">
             <img src="../../images/index/envi/43.png" alt="" class="img-responsive">
         </div>
-        <h3>影像镶嵌</h3>
+        <h3>2-3影像镶嵌</h3>
         <div class="well">
             镶嵌是将图像链接在一起以形成更大图像或者一组图像的过程。ENVI的图像镶嵌功能可提供交互式的方式，
             将有地理坐标或者没有地理坐标的多幅图像合并，生成一幅单一的合成图像。
@@ -142,10 +140,21 @@
             点击影像镶嵌 ---> 基于像素的图片镶嵌 --->  点击import 全选两张图片 ---> 往大调整 Xsize和Ysixe ---> ok 
             ---> 选中图片右击选择Raise Image one Position ---> 调整图片位置进行拼接 ---> 拼接完毕点击文件File ---> Apply --->选择 ---> 改名字保存桌面 ---> 会在View视图窗口生成新的图片
         </div>
-
-
-
-
+        <h3>2-4图像裁切</h3>
+        <div class="well">
+            <b>规则裁剪</b>
+            点击文件File ---> 另存为 Save as ---> 另存为选一 ---> 空间裁剪/空间裁剪
+            右击数据 ---> 新建感兴趣区 ---> 圈中做需要的区域 ---> 点击文件File ---> 另存为 Save as ---> 另存为选一 ---> 波段裁剪选择432，空间裁剪选择使用ROI裁剪 ---> 选中ROI 
+            ---> 确定、路径保存（裁出 .dat .hdr .enp 三种文件）<br/>
+            通过小弹框里面也可以选择其他裁剪方式，例如输入坐标值的形式
+        </div>
+        <div class="well">
+            <b>不规则裁剪</b>
+            点击感兴趣区 ---> 利用ROI裁剪图像 ---> 确定 ---> Mask pixls outside of ROI 选择为 Yes ---> 输出，选择输出路径及新的文件名 ---> 确定
+        </div>
+        <div>
+            <img src="../../images/index/envi/46.png" alt="" class="img-responsive">
+        </div>
 
         <br/>
         <h4>未完待续~~~</h4>
