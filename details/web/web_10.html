@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>node有关知识学习</title>
+    <link href="../../lib/bootstrap/css/bootstrap.css"" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/index/index.css">
+    <!--[if lt IE 9]>
+        <script src="lib/html5shiv/html5shiv.min.js"></script>
+        <script src="lib/respond/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body style="background-image: url('../../images/bg.gif');">
+    <div class="container">
+        <h3><b>什么是node.js</b></h3>
+        <div class="well">
+            <b>简单的说 Node.js 就是运行在服务端的 JavaScript。</b><br/>
+            <b>Node.js 是一个基于Chrome JavaScript 运行时建立的一个平台。</b><br/>
+            <b>Node.js是一个事件驱动I/O服务端JavaScript环境，基于Google的V8引擎，V8引擎执行Javascript的速度非常快，性能非常好。</b><br/>
+            <a href="https://github.com/nodejs/node/tree/master/lib">源码网址：https://github.com/nodejs/node/tree/master/lib</a>
+        </div>
+        <h4><b>异步和事件驱动：</b></h4>
+        <div class="alert alert-danger">
+            异步访问完数据库之后就去进行其他操作，访问过程速度特别快，
+            当下一步需要数据时会报错，所以需要将下一步操作放到上面的函数中，作为回调函数使用。
+            node.js中有asyac方法让程序顺序执行
+        </div>
+        <h4><b>CommonJs模块规范</b></h4>
+        <div class="well">
+            1、一个文件就是一个模块<br/>
+            2、通过exports和module.exports来导出模块中的成员(声明模块中那些功能可以使用)<br/>
+            3、通过require来加载模块
+        </div>
+        <h4><b>node.js模块（基于CommonJs规范）</b></h4>
+        <div class="well">
+            1)内置的node.js模块<br/>
+            2)第三方的node.js模块<br/>3)自定义的node.js模块
+        </div>
+        <h4><b>自定义node.js模块</b></h4>
+        <div class="well">
+            写法一：<br/>
+            exports.属性/方法 = 功能<br/>
+            写法二：<br/>
+            module.exports.属性/方法 = 变量名<br/>
+            使用：<br/>
+            var 对象 = require('路径及文件夹名');<br/>
+            对象.属性/方法<br/>
+            如下图例：
+        </div>
+        <div>
+            <img src="../../images/web/web_10_1.png" alt="" class="img-responsive">
+        </div>
+
+        <h4><b>fs模块和http模块</b></h4>
+        <div class="well">
+            fs:file-system 的简写 ，文件系统的意思
+            在node中想要进行文件操作，就必须引进fs核心模块
+            这个fs核心模块中就提供了文件操作的相关的api
+            var fs = require('fs');
+        </div>
+        <div>
+            <img src="../../images/web/web_10_2.png" alt="" class="img-responsive">
+        </div>
+        <div class="well">
+            node中专门提供了一个服务器模块：http，这个模块的职责就是帮你创建编写服务器的<br/>
+            <a href="http://tool.oschina.net/commons" target="_blank">setHeader()时的对照表</a><br/>
+            <b>在node中，把html模板文件都当成二进制流文件，或是字符串数据</b>
+        </div>
+        <div>
+            <img src="../../images/web/web_10_3.png" alt="" class="img-responsive"><br/>
+            <img src="../../images/web/web_10_4.png" alt="" class="img-responsive"><br/>
+            <img src="../../images/web/web_10_5.png" alt="" class="img-responsive"><br/>
+            <img src="../../images/web/web_10_6.png" alt="" class="img-responsive"><br/>
+            <b>这样的话就可以通过链接地址访问不同的页面程序雏形</b>
+            <img src="../../images/web/web_10_7.png" alt="" class="img-responsive"><br/>
+            <img src="../../images/web/web_10_8.png" alt="" class="img-responsive"><br/>
+            <img src="../../images/web/web_10_9.png" alt="" class="img-responsive"><br/>
+            <img src="../../images/web/web_10_10.png" alt="" class="img-responsive"><br/>
+            <img src="../../images/web/web_10_11.png" alt="" class="img-responsive"><br/>
+        </div>
+        
+
+
+
+
+
+
+
+
+
+        <p>未完待续~~~</p>
+    </div>
+</body>
+</html>
