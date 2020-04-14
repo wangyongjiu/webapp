@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Express框架学习</title>
+    <link href="../../lib/bootstrap/css/bootstrap.css"" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/index/index.css">
+    <!--[if lt IE 9]>
+        <script src="lib/html5shiv/html5shiv.min.js"></script>
+        <script src="lib/respond/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body style="background-image: url('../../images/bg.gif');">
+    <div class="container">
+        <h3>Express框架简介</h3>
+        <div class="well">
+            <b>TJ Holowaychuk express框架研发者</b><br/>
+            Express 是一个简洁而灵活的 node.js Web应用框架, 提供了一系列强大特性帮助你创建各种 Web 应用，和丰富的 HTTP 工具。<br/>
+            简单点说express就是一个封装了很多功能的包，而你只需要用简单的express的专属的一些代码便可解决本来正常较为复杂的代码，方便你使用<br/>
+            Express 框架核心特性：
+            <ul>
+                <li> 可以设置中间件来响应 HTTP 请求。</li>
+                <li>定义了路由表用于执行不同的 HTTP 请求动作。</li>
+                <li>可以通过向模板传递参数来动态渲染 HTML 页面。</li>
+            </ul>
+        </div>
+        <h4><b>简单的Express启动服务器程序</b></h4>
+        <div>
+            <img src="../../images/web/web_11_1.png" alt="" class="img-responsive"><br/>
+        </div>
+        <h4><b>静态资源管理及路径访问问题</b></h4>
+        <div>
+            <img src="../../images/web/web_11_2.png" alt="" class="img-responsive"><br/>
+        </div>
+        <h4><b>Express修改代码自动重启</b></h4>
+        <div class="well">
+            我们这里使用第三方工具：nodemon 他是一个基于node.js开发的命令行工具，我们使用时要独立安转 <b>npm install -g nodemon</b>
+            完毕后，原来启动项目命令是<b>node app.js</b>  现在需要换成 <b>nodemon app.js</b> 他会自动监视文件变化，自动重启服务器
+        </div>
+        <h4><b>Express路由</b></h4>
+        <div class="well">
+            根目录下新建router.js文件,将app.get() 和 app.post 请求全部放到router.js文件中<br/>
+            <b>app.get()方法的返回值是app示例，所以可以链式调用get方法</b>
+        </div>
+        <h4><b>Express中art-template模板使用</b></h4>
+        <div class="well">
+            安装：<b>npm install --save art-template</b>
+            <b>npm install --save express-art-template</b><br/>
+            可以修改默认views模板文件的找寻路径
+            app.set('views','目录路径')
+        </div>
+        <div>
+            <img src="../../images/web/web_11_3.png" alt="" class="img-responsive"><br/>
+            <img src="../../images/web/web_11_4.png" alt="" class="img-responsive"><br/>
+        </div>
+
+
+
+
+
+
+
+
+
+
+        <p>未完待续~~~</p>
+    </div>
+</body>
+</html>
