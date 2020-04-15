@@ -80,11 +80,15 @@
             <img src="../../images/index/envi/30.png" alt="" class="img-responsive">
         </div>
         <div class="well">
-            在经典版本中:<br/>1）点击菜单栏的文件 ---> 打开图像文件 ---> 选择光盘映像文件打开 ---> 选择 RGB Color ---> 在上面(图片选择框)中选择4、3、2波段 ---> Load RGB ---> Display #1 选择 New Display ---> 在原来操作框中选择另一张图片并且选择Gray Scale ---> load RGB<br/>
+            在经典版本中:<br/>1）点击菜单栏的文件 ---> 打开图像文件 ---> 选择光盘映像文件打开 ---> 
+            选择 RGB Color ---> 在上面(图片选择框)中选择4、3、2波段 ---> Load RGB ---> Display #1 选择 New Display 
+            ---> 在原来操作框中选择另一张图片并且选择Gray Scale ---> load RGB<br/>
             2）点击菜单栏的地图 ---> 几何校正 ---> 控制点选取 图像--图像 ---> Base Image选择#2、Warp Image选择#1 ---> OK<br/>
-            3）在第一张、第二张图分别找到一样位置的点点击Add Point，连续找三个不同位置的点（必须3个点），当你在第二张图片上随机选取一个点之后，再点击Predict，第一张图片就会找到与第二张图片几乎一样的同位置点<br/>
+            3）在第一张、第二张图分别找到一样位置的点点击Add Point，连续找三个不同位置的点（必须3个点），
+            当你在第二张图片上随机选取一个点之后，再点击Predict，第一张图片就会找到与第二张图片几乎一样的同位置点<br/>
             4）点击File ---> Save GCPs to ASCII 就会将刚才的标注点保存出一个文件方便下次操作<br/>
-            5）图3点击Options ---> 点击最后一项自动选点位 ---> 选择tm数据信息量大的第五波段 ---> 自动生成点位的参数设置，点击OK ---> Show List ---> Options ---> Oder Points by Error 以最大误差排列所有点 ---> 通过点击On/Off关闭误差大的点位
+            5）图3点击Options ---> 点击最后一项自动选点位 ---> 选择tm数据信息量大的第五波段 ---> 
+            自动生成点位的参数设置，点击OK ---> Show List ---> Options ---> Oder Points by Error 以最大误差排列所有点 ---> 通过点击On/Off关闭误差大的点位
         </div>
         <div>
             <img src="../../images/index/envi/31.png" alt="" class="img-responsive">
@@ -138,23 +142,69 @@
         <div class="well">
             首先先将需要镶嵌处理的图片引入
             点击影像镶嵌 ---> 基于像素的图片镶嵌 --->  点击import 全选两张图片 ---> 往大调整 Xsize和Ysixe ---> ok 
-            ---> 选中图片右击选择Raise Image one Position ---> 调整图片位置进行拼接 ---> 拼接完毕点击文件File ---> Apply --->选择 ---> 改名字保存桌面 ---> 会在View视图窗口生成新的图片
+            ---> 选中图片右击选择Raise Image one Position ---> 调整图片位置进行拼接 ---> 拼接完毕点击文件File --->
+             Apply --->选择 ---> 改名字保存桌面 ---> 会在View视图窗口生成新的图片
         </div>
         <h3>2-4图像裁切</h3>
         <div class="well">
             <b>规则裁剪</b><br/>
-            点击文件File ---> 另存为 Save as ---> 另存为选一 ---> 波段裁剪选择432/空间裁剪
-            右击数据名称 ---> 新建感兴趣区 ---> 圈中做需要的区域 ---> 点击文件File ---> 另存为 Save as ---> 另存为选一 ---> 波段裁剪选择432，空间裁剪选择使用ROI裁剪 ---> 选中ROI 
+            1、点击文件File ---> 另存为 Save as ---> 另存为选一 ---> 波段裁剪选择432/空间裁剪 框出要裁剪的区域确定保存文件
+        </div>
+        <div class="well">
+            2、右击原来的数据名称 ---> 新建感兴趣区 ---> 圈中做需要的区域 ---> 点击文件File ---> 另存为 Save as ---> 
+            另存为选一 ---> 选择框中选中原来的文件 ---> 波段裁剪选择432，空间裁剪选择使用ROI裁剪 ---> 选中ROI 
             ---> 确定、路径保存（裁出 .dat .hdr .enp 三种文件）<br/>
             通过小弹框里面也可以选择其他裁剪方式，例如输入坐标值的形式
         </div>
         <div class="well">
             <b>不规则裁剪</b><br/>
-            点击感兴趣区 ---> 利用ROI裁剪图像 ---> 选择一个多光谱数据 ---> 确定 ---> 选择一个想要的图形数据(.shp结尾) 以这个数据为模型进行裁剪 --->  Mask pixls outside of ROI 选择为 Yes ---> 输出，选择输出路径及新的文件名 ---> 确定
+            点击感兴趣区 ---> 利用ROI裁剪图像 ---> 选择一个多光谱数据 ---> 确定 ---> 选择一个想要的图形数据(.shp结尾) 以这个数据为模型进行裁剪 或者是 选择之前框出的#ROI文件
+            --->  Mask pixls outside of ROI 选择为 Yes ---> 输出，选择输出路径及新的文件名 ---> 确定
         </div>
         <div>
             <img src="../../images/index/envi/46.png" alt="" class="img-responsive">
         </div>
+        <h4><b>envi数据格式</b></h4>
+        <div class="table-responsive">
+            <table class="table">
+                <tr class="active">
+                    <th>文件后缀名</th>
+                    <th>解释</th>
+                    <th>用途</th>
+                </tr>
+                <tr class="info">
+                    <td colspan="3">Shape files是ESRI提供的一种矢量数据格式，他没有拓扑信息，一个Shape files由一组文件组成，
+                        其中必要的基本文件包括坐标文件(.shp)、索引文件(.shx)和属性文件(.dbf)三个文件
+                    </td>
+                </tr>
+                <tr class="info">
+                    <td>.shp</td>
+                    <td>坐标文件</td>
+                    <td>.shp用于记录空间坐标信息，它是由头文件和实体信息两部分组成</td>
+                </tr>
+                <tr class="info">
+                    <td>.shx</td>
+                    <td>索引文件</td>
+                    <td>.shx主要包含坐标文件的索引信息，文件中每个记录对应的坐标文件记录距离坐标文件的文件头的偏移量。他也是由头文件和实体信息连部分组成</td>
+                </tr>
+                <tr class="info">
+                    <td>.dbf</td>
+                    <td>属性文件</td>
+                    <td>.dbf用于记录属性信息，它是一个标准的dbf文件，也是由头文件和实体信息两部分组成</td>
+                </tr>
+            </table>
+        </div>
+
+        <h3>2-5图像掩膜</h3>
+        <div class="well">
+            <b>掩膜处理：</b><br/>点击工具框中的栅格数据管理 ---> 掩膜 ---> 双击创建掩膜 ---> 选择原始数据 ---> 确定 ---> Options ---> Import ROLs ---> 选择ROL数据或是.shp文件数据 --->
+            OK ---> 重新命名输出数据
+        </div>
+        <div class="well">
+            <b>应用掩膜：</b><br/>应用掩膜 ---> 选择原始数据 ---> Select Mask Band ---> Mask Band ---> 确定 ---> 确定 ---> 重命名保存输出数据
+        </div>
+
+
 
         <br/>
         <h4>未完待续~~~</h4>
