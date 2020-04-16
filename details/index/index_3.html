@@ -16,18 +16,26 @@
 <body style="background-image: url('../../images/bg.gif');">
     <div class="container">
         <h2><b>一、ENVI工具界面翻译</b></h2>
-        <h3>1.File文件菜单栏功能翻译</h3>
-        <div id="tree"></div>
-        <h3>2.Edit编辑菜单栏功能翻译</h3>
-        <div id="tree1"></div>
-        <h3>3.Display显示菜单栏功能翻译</h3>
-        <div id="tree2"></div>
-        <h3>4.Placemarks地名标注菜单栏功能翻译</h3>
-        <div id="tree3"></div>
-        <h3>5.Views视图菜单栏功能翻译</h3>
-        <div id="tree4"></div>
-        <h3>6.Help帮助菜单栏功能翻译</h3>
-        <div id="tree5"></div>
+        <div class="row">
+            <div class="col-md-4 col-xs-12">
+                <h3>1.File文件菜单栏功能翻译</h3>
+                <div id="tree"></div>
+                <h3>2.Edit编辑菜单栏功能翻译</h3>
+                <div id="tree1"></div>
+            </div>
+            <div class="col-md-4 col-xs-12">
+                <h3>3.Display显示菜单栏功能翻译</h3>
+                <div id="tree2"></div>
+                <h3>4.Placemarks地名标注菜单栏功能翻译</h3>
+                <div id="tree3"></div>
+            </div>
+            <div class="col-md-4 col-xs-12">
+                <h3>5.Views视图菜单栏功能翻译</h3>
+                <div id="tree4"></div>
+                <h3>6.Help帮助菜单栏功能翻译</h3>
+                <div id="tree5"></div>
+            </div>
+        </div>
         <h2><b>二、软件界面</b></h2>
         <h4 class="well"><b>ENVI软件界面截图</b></h4>
         <div><img src="../../images/index/envi/1.png" alt="" class="img-responsive"></div>
@@ -203,6 +211,31 @@
         <div class="well">
             <b>应用掩膜：</b><br/>应用掩膜 ---> 选择原始数据 ---> Select Mask Band ---> Mask Band ---> 确定 ---> 确定 ---> 重命名保存输出数据
         </div>
+        <h3>地理坐标系（Geogrpahic Coordinate System）GCS</h3>
+        <div class="well">
+            1）地理坐标系使用基于经纬坐标的坐标系统<br/>
+            2）描述地球上的某一点所处的位置<br/>
+            3）某一个地理坐标系时基于一个基准面来定义
+        </div>
+        <div class="well">
+            投影坐标（PCS）：使用基于X，Y值得坐标系统来吗描述地球上某个点所处的位置，这个坐标系时从地球的近似椭圆体投影得到的，它对应于某个地理坐标系<br/>
+            投影坐标系由以下参数确定:<br/>
+            1）地理坐标系（由基准面确定，比如：北京54、西安80、CGCS2000.基准面时利用特定椭球体对待定地区地球表面的逼近，
+            因此每个国家或地区均有各自的基准面，我们通常称为的北京54坐标系、西安坐标系实际上指的是我国的两个大地基准面）<br/>
+            2）投影方法（比如高斯--克吕格（TM的变种）、Lambert投影、UTM投影、TM（通用横轴墨卡托））
+        </div>
+        <div>
+            <img src="../../images/index/envi/47.png" alt="" class="img-responsive"><br/>
+        </div>
+        <div class="well">
+            <b>定义Beijing54、Xian80、CGCS2000坐标系</b><br/>
+            点击文件打开.dat文件 ---> 右击数据名查看元数据 ---> 地理信息 ---> 编辑元数据 ---> 选择坐标系统三个小圆点 ---> Projected Coordinate Systems ---> 
+            Gauss Kruger ---> CGCS2000 ---> CGCS2000 3 Degree GK CM 120E ---> 确定（确保像元大小和连接点数据和地理信息中的一一对应好）
+        </div>
+        <div class="well">
+            
+        </div>
+
 
 
 
@@ -220,6 +253,9 @@
             },
             {
                 text: "Open As 打开特定数据（光学、雷达、热传感器...）",
+                state: {
+                    expanded: false
+                },
                 nodes: [
                     {
                         text: "Optical Sensors 打开光学传感器"
@@ -255,6 +291,9 @@
             },
             {
                 text: "Open World Data 打开ENVI自带的一些全球基础数据",
+                state: {
+                    expanded: false
+                },
                 nodes:[
                     {
                         text:'All Vectors 所有矢量'
@@ -308,6 +347,9 @@
             },
             {
                 text: "New 创建矢量、标记、感兴趣区、栅格分割等",
+                state: {
+                    expanded: false
+                },
                 nodes:[
                     {
                         text:'Vector Layer 矢量层'
@@ -325,6 +367,9 @@
             },
             {
                 text: "Views & Layers 将工作空间保存成json或者从json导回",
+                state: {
+                    expanded: false
+                },
                 nodes:[
                     {
                         text:'Restore 恢复'
@@ -339,6 +384,9 @@
             },
             {
                 text: "Save As 另存栅格格式为",
+                state: {
+                    expanded: false
+                },
                 nodes:[
                     {
                         text:'Save As ENVI NITF TIFF DTED'
@@ -371,6 +419,9 @@
             },
             {
                 text: "Chip View To 抓图导出",
+                state: {
+                    expanded: false
+                },
                 nodes:[
                     {
                         text:'File... 文件'
@@ -388,6 +439,9 @@
             },
             {
                 text: "Export View To 导出试图",
+                state: {
+                    expanded: false
+                },
                 nodes:[
                     {
                         text:'Geospatial PDF... 地理空间PDF'
@@ -438,6 +492,9 @@
             },
             {
                 text:'Order Layer 订单层',
+                state: {
+                    expanded: false
+                },
                 nodes:[
                     {
                         text:'Bring to Front 带到前面'
@@ -476,6 +533,9 @@
             },
             {
                 text:'Profiles 配置文件',
+                state: {
+                    expanded: false
+                },
                 nodes:[
                     {
                         text:'Spectral 光谱的'
