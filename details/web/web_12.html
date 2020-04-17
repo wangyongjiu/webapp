@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MongoDB数据库学习</title>
+    <link href="../../lib/bootstrap/css/bootstrap.css"" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/index/index.css">
+    <!--[if lt IE 9]>
+        <script src="lib/html5shiv/html5shiv.min.js"></script>
+        <script src="lib/respond/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body style="background-image: url('../../images/bg.gif');">
+    <div class="container">
+        <h3>MongoDB数据库简介</h3>
+        <div class="well">
+            MongoDB 是一个基于分布式文件存储的数据库。由 C++ 语言编写。旨在为 WEB 应用提供可扩展的高性能数据存储解决方案。
+            MongoDB 是一个介于关系数据库和非关系数据库之间的产品，是非关系数据库当中功能最丰富，最像关系数据库的。
+        </div>
+        <div class="well">
+            <b>配置及开关进退</b><br/>
+            进入mongodb根目录下的bin目录，将路径配置进用户环境变量中<br/>
+            在其他位置新建一个目录data 进入后在新建db文件夹 用于存放数据 规定<br/>
+            启动：mongod<br/>
+            停止：ctrl + cc <br/>
+            修改默认的数据存储目录：mongod --dbpath=数据存储目录路径 一般也不改<br/>
+            连接：mongo<br/>
+            退出：exit<br/>
+        </div>
+        <div class="well">
+            <b>基本命令</b><br/>
+            show dbs ： 查看显示所有数据库（默认有3个数据库，不能动）<br/>
+            db ： 查看当前操作的数据库<br/>
+            use 数据库名称 ： 切换到指定数据库（如果没有会新建）<br/>
+            插入数据：往当前数据库插入students数据 ： db.students.insertOne({"name":"小明"})<br/>
+            查看当前数据库数据表：show collections<br/>
+            查看当前数据库中数据表中内容：db.students.find()<br/>
+        </div>
+        <div class="well">
+            <b>Node中如何操作MongoDB</b><br/>
+            使用官方操作包
+        </div>
+        <div>
+            <img src="../../images/web/web_12_1.png" alt="" class="img-responsive"><br/>
+        </div>
+        <p>未完待续~~~</p>
+    </div>
+</body>
+</html>
