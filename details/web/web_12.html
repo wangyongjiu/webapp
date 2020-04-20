@@ -18,6 +18,11 @@
         <div class="well">
             MongoDB 是一个基于分布式文件存储的数据库。由 C++ 语言编写。旨在为 WEB 应用提供可扩展的高性能数据存储解决方案。
             MongoDB 是一个介于关系数据库和非关系数据库之间的产品，是非关系数据库当中功能最丰富，最像关系数据库的。
+            MongoDB 是一个数据大集合，一种文档
+        </div>
+        <div>
+            <b>MongoDB数据库理解</b>
+            <img src="../../images/web/mongodb/2.png" alt="" class="img-responsive"><br/>
         </div>
         <div class="well">
             <b>配置及开关进退</b><br/>
@@ -41,10 +46,43 @@
         <div class="well">
             <b>Node中如何操作MongoDB</b><br/>
             使用官方操作包
+            安装 <b>npm install mongodb --save</b>比较原生，一般不是首选<br/>
+            使用第三方操作包<br/>
+            安装 <b>npm install mongoose --save</b>他是基于mongodb包再一次封装的，一般使用这个操作<br/>
+            使用了mongoose，基本上就是API操作了，相关API请进官方网站 <a href="http://www.mongoosejs.net/">http://www.mongoosejs.net/</a>
+        </div>
+        <h3>mongoose操作</h3>
+        <div>
+            简单示例
+            <img src="../../images/web/mongodb/1.png" alt="" class="img-responsive"><br/>
+        </div>
+        <div class="alert alert-danger">
+            *注意：<br/>
+            1）mongodb不需要设计表结构，但也因此不要乱存<br/>
+            2）指定连接的数据库不存在，当你插入第一条数据之后就会自动创建出来
         </div>
         <div>
-            <img src="../../images/web/web_12_1.png" alt="" class="img-responsive"><br/>
+            <b>基本增删改查操作</b>
+            <img src="../../images/web/mongodb/3.png" alt="" class="img-responsive"><br/>
+            <img src="../../images/web/mongodb/4.png" alt="" class="img-responsive"><br/>
+            <img src="../../images/web/mongodb/5.png" alt="" class="img-responsive"><br/>
+            <img src="../../images/web/mongodb/6.png" alt="" class="img-responsive"><br/>
+            <img src="../../images/web/mongodb/7.png" alt="" class="img-responsive"><br/>
+            <img src="../../images/web/mongodb/8.png" alt="" class="img-responsive"><br/>
         </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
         <p>未完待续~~~</p>
     </div>
 </body>
