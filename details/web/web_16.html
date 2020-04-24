@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ES6</title>
+    <link href="../../lib/bootstrap/css/bootstrap.css"" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/index/index.css">
+    <!--[if lt IE 9]>
+        <script src="lib/html5shiv/html5shiv.min.js"></script>
+        <script src="lib/respond/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body style="background-image: url('../../images/bg.gif');">
+    <div class="container">
+        <h3>POP</h3>
+        <div class="well">
+            <b>面向过程编程（Process-oriented programming）</b><br/>
+            面向过程就是分析解决问题所需要的过程，然后用函数把这些步骤一步一实现，使用的时候再一个一个的依次调用就可以了
+        </div>
+        <h3>OOP</h3>
+        <div class="well">
+            <b>面向对象编程（Object Oriented Programming）</b><br/>
+            面向对象是把事务分解成一个个对象，然后由对象之间分工合作，面向对象的特征：封装性、继承性、多态性
+        </div>
+        <h3>AOP</h3>
+        <div class="well">
+            <b>面向切面编程</b>
+        </div>
+        <div>
+            <img src="../../images/web/web_15_1.png" alt="" class="img-responsive"><br/>
+        </div>
+
+        <div class="well">
+            <b>constructor构造函数</b><br/>
+            constructor()方法是累的构造函数（默认方法），用于传递参数，返回实例对象，
+            通过new命令生成对象实例时，自动调用该方法，如果没有显式定义，类内部会自动给我们创建一个constructor()
+        </div>
+        <div class="well">
+            <b>继承写法</b><br/>
+            class Son extends Father{ 子类继承父类<br/>
+            super关键字 ： 用于访问和调用对象父类上的函数，可以调用父类的构造函数，也可以调用父类的普通函数<br/>
+            继承中的属性或方法查找原则：就近原则<br/>
+            继承中，如果实例化子类输出一个方法，先看子类有没有这个方法，如果有就先执行子类的<br/>
+            如果子类中没有，就去父类中查找，如果有就执行<br/>
+            
+        </div>
+        <div>
+            <img src="../../images/web/es6/1.png" alt="" class="img-responsive"><br/>
+        </div>
+        <div class="alert alert-danger">
+            <b>注意：</b><br/>子类在构造函数中使用super，必须放到this前面（必须先调用父类的构造方法，在使用子类构造方法）。
+            在ES6中类没有变量名提升，所以必须先定义类，才能实例化对象，类里面的共有属性和方法一定要加this使用。
+            类里面的this的指向问题
+        </div>
+        <div>
+            <img src="../../images/web/es6/2.png" alt="" class="img-responsive"><br/>
+        </div>
+
+
+
+
+
+
+
+
+
+        <p>未完待续~~~</p>
+    </div>
+</body>
+</html>
