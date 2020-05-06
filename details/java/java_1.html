@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>java基础学习</title>
+    <link href="../../lib/bootstrap/css/bootstrap.css"" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/index/index.css">
+    <!--[if lt IE 9]>
+        <script src="lib/html5shiv/html5shiv.min.js"></script>
+        <script src="lib/respond/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div class="container">
+        <h3>Java的解释</h3>
+        <div class="well">
+            Java来自于Sun公司的一个叫Green的项目，Java是一门面向对象的编程语言
+        </div>
+        <h3>JVM</h3>
+        <div class="well">
+            即在机器和编译程序之间加入了一层抽象的虚拟的机器。这台虚拟的机器在任何平台上都提供给编译程序一个共同的接口。
+            编译程序只需要面向虚拟机，生成虚拟机能够理解的代码，然后由解释器来将虚拟机代码转换为系统的机器码执行。
+            在java中，这种供虚拟机理解的代码叫做字节码（ByteCode），它不面向任何特定的处理器，只面向虚拟机。
+        </div>
+        <div>
+            <img src="../../images/java/1/1.png" alt="" class="img-responsive"><br/>
+        </div>
+        <h3>程序运行的起始点---main() method</h3>
+        <div class="well">
+            java程序是由一个或一个以上的类组合而成的，程序起始的主体也在被包含在类中。这个起始的地方称为main()。
+            main()方法为程序的主方法，在一个java程序中有且只能有一个main()方法
+        </div>
+        <h3>常量</h3>
+        <div class="well">
+            常量就是固定不变的量，一旦被定义，它的值就不能再被改变。<br/>
+            声明常量的语法为：<b>final 数据类型 常量名[=值]</b><br/>
+            常量名称通常使用大写字母，列入PI、YEAR等，但并不是硬性要求
+        </div>
+        <div class="well">
+            变量是利用声明的方式，将内存中的某个块保留下来以供程序使用。<br/>
+        </div>
+        <h3>数据类型</h3>
+        <div>
+            <img src="../../images/java/1/2.png" alt="" class="img-responsive"><br/>
+            <img src="../../images/java/1/3.png" alt="" class="img-responsive"><br/>
+        </div>
+        <div class="well">
+            <b>char与byte的区别：</b><br/>
+            <b>byte 是字节数据类型</b>，是有符号型的，占1 个字节；大小范围为-128—127。<br/>
+            <b>char 是字符数据类型</b>，是无符号型的，占2字节(Unicode码 ）；大小范围是0—65535<br/>
+            1、char是无符号型的，可以表示一个整数，不能表示负数；而byte是有符号型的，可以表示-128—127的数<br/>
+            2、char可以表中文字符，byte不可以<br/>
+            3、char、byte、int对于英文字符，可以相互转化<br/>
+        </div>
+        <h3>强制类型转换</h3>
+        <div class="well">
+            强制类型语法转换：<b>（欲转换的数据类型）变量名称</b>
+        </div>
+        <h3>数组</h3>
+        <div class="well">
+            一维数组写法：<b>数据类型 数组名[ ] = new 数据类型[个数]</b><br/>
+            int score[] = new int[11];声明一个元素个数为11的整型数组score<br/>
+            二维数组写法：<b>数据类型 数据名[ ][ ] = new 数据类型[行的个数][列的个数]</b>
+        </div>
+        <h3>对象</h3>
+        <div class="well">
+            声明对象：<b>类名 对象名 = new 类名();</b><br/>
+            Person p = new Person();
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+</body>
+</html>
