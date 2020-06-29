@@ -141,6 +141,155 @@
         <div class="well">
             然后返回主页面，可开启新建好的虚拟机
         </div>
+        <h3>三、Linux安装（CentOS6为例）</h3>
+        <div class="well">
+            <b>1.1启动虚拟机</b><br/>
+            <b>1.2选择安装项</b>
+        </div>
+        <div>
+            <img src="../../images/index/linux/25.png" alt="" class="img-responsive"><br/>
+        </div>
+        <div class="alert alert-danger">
+            <b>扩展：不同的选择解释</b><br/>
+            Install or upgrade an existing system ：安装或升级现有系统（默认项），采用CentOS的图行安装程序<br/>
+            Install system width basic video driver : 使用基本驱动安装程序。如果显卡等驱动不能成功安装时，可以使用此项。<br/>
+            Rescue installed system : 救援安装的系统。如果不能正常启动时，使用此项。<br/>
+            Bootfrome local derive : 从本地驱动器启动<br/>
+            Memory test : 内存测试<br/>
+        </div>
+        <div class="well">
+            <b>1.3跳过检查</b><br/>
+            使用”tab“键，选择”skip“。回车enter
+        </div>
+        <div>
+            <img src="../../images/index/linux/26.png" alt="" class="img-responsive"><br/>
+        </div>
+        <div class="alert alert-danger">
+            检查安装盘是否完整。一般不用检查，如果点击”ok“，比较耗时
+        </div>
+        <div class="well">
+            <b>1.4欢迎界面</b>
+        </div>
+        <div>
+            <img src="../../images/index/linux/27.png" alt="" class="img-responsive"><br/>
+        </div>
+        <div class="well">
+            <b>1.5选择语言环境</b>
+        </div>
+        <div>
+            <img src="../../images/index/linux/28.png" alt="" class="img-responsive"><br/>
+        </div>
+        <div class="well">
+            <b>1.6</b>选择键盘类型（默认）
+        </div>
+        <div>
+            <img src="../../images/index/linux/29.png" alt="" class="img-responsive"><br/>
+        </div>
+        <div class="well">
+            <b>1.7选择存储设备</b><br/>
+            选择”基本存储设备“（默认）
+        </div>
+        <div>
+            <img src="../../images/index/linux/30.png" alt="" class="img-responsive"><br/>
+        </div>
+        <div class="alert alert-danger">
+            <b>存储设备解释</b><br/>
+            基本存储设备：作为安装空间的默认选择，适合哪些不知道应该选择哪个存储设备的用户。<br/>
+            指定的存储设备：需要用户将系统安装指定到特定的存储设备上，可以时本地某个设备，当然也可以时SAN（存储局域网）。
+            通过允许用户添加fCoE/iSCSI/zFCP磁盘，并且能够过滤掉安装程序应该忽略的设备。
+        </div>
+        <div class="well">
+            <b>1.8格式化硬盘</b><br/>
+            选择”是，忽略所有数据“
+        </div>
+        <div>
+            <img src="../../images/index/linux/31.png" alt="" class="img-responsive"><br/>
+        </div>
+        <div class="well">
+            <b>1.9设置网络</b>
+        </div>
+        <div>
+            <img src="../../images/index/linux/32.png" alt="" class="img-responsive"><br/>
+            <img src="../../images/index/linux/33.png" alt="" class="img-responsive"><br/>
+            <img src="../../images/index/linux/34.png" alt="" class="img-responsive"><br/>
+            <img src="../../images/index/linux/35.png" alt="" class="img-responsive"><br/>
+            <img src="../../images/index/linux/36.png" alt="" class="img-responsive"><br/>
+        </div>
+        <div class="well">
+            <b>1.10设置时区</b><br/>
+            选择”亚洲/上海“
+        </div>
+        <div>
+            <img src="../../images/index/linux/37.png" alt="" class="img-responsive"><br/>
+        </div>
+        <div class="well">
+            <b>1.11设置密码</b><br/>
+            Linux根账号为：root
+        </div>
+        <div>
+            <img src="../../images/index/linux/38.png" alt="" class="img-responsive"><br/>
+            <img src="../../images/index/linux/39.png" alt="" class="img-responsive"><br/>
+        </div>
+        <div class="well">
+            <b>1.12磁盘分区配置</b><br/>
+            <b>1.12.1选择安装类型</b><br/>
+            可选”使用所有空间“
+        </div>
+        <div>
+            <img src="../../images/index/linux/40.png" alt="" class="img-responsive"><br/>
+        </div>
+        <div class="alert alert-danger">
+            <b>各种配置解释</b><br/>
+            1.使用所有空间（Use All Space）：删除您硬盘上的所有分区（这包括如Windows的NTFS分区VFAT或其他操作系统创建的分区）。<br/>
+            2.替换现有的Linux系统（Replace Existing Linux System）：以消除先前的Linux安装创建的分区。这不会删除其他分区（如VFAT或FAT32分区），你可能
+            对您的硬盘驱动器。<br/>
+            3.缩小现有系统（Shrink CurrentSystem）：调整当前分区。<br/>
+            4.使用剩余空间（Use Free Space）：保留您当前的数据和分区并安装在未使用的存储驱动器上。注意：必须保证有走狗的可用空间。<br/>
+            5.创建自定义布局（Create Custom Layout）：手动存储设备进行分区并创建自定义布局。<br/>
+        </div>
+        <div class="well">
+            <b>1.12.2格式化</b>
+        </div>
+        <div>
+            <img src="../../images/index/linux/41.png" alt="" class="img-responsive"><br/>
+        </div>
+        <div class="well">
+            <b>1.13选择系统安装类型</b>
+        </div>
+        <div>
+            <img src="../../images/index/linux/42.png" alt="" class="img-responsive"><br/>
+        </div>
+        <div class="alert alert-danger">
+            <b>各个类型解释</b><br/>
+            Desktop：基本的桌面系统，包括常用的桌面软件，如文档查看工具。<br/>
+            Minimal Desktop：基本的桌面系统，包含的软件较少。<br/>
+            Minimal：基本的系统，不包含有任何可选的软件包。<br/>
+            Basic Server：安装的基本系统的平台支持，不包含桌面。<br/>
+            Database Server：基本系统平台。加上MySQL 和 PostgreSQL 数据库，无桌面<br/>
+            Web Server：基本系统平台，加上PHP，Web Server，还有MySQL和PostgreSQL 数据库的客户端，无桌面<br/>
+            Virtual Host：基本系统加虚拟平台<br/>
+            Software Development Workstation：包含软件包较多，基本系统，虚拟化平台，桌面环境，开发工具。<br/>
+        </div>
+        <div class="well">
+            <b>1.14安装开始并重启</b>
+        </div>
+        <div>
+            <img src="../../images/index/linux/43.png" alt="" class="img-responsive"><br/>
+        </div>
+        <div class="well">
+            <b>1.15登录</b><br/>
+            输入用户名，回车<br/>
+            输入密码回车（注意：密码输入看不到）<br/>
+        </div>
+        <div>
+            <img src="../../images/index/linux/44.png" alt="" class="img-responsive"><br/>
+        </div>
+        <div class="well">
+            登陆成功
+        </div>
+        <div>
+            <img src="../../images/index/linux/45.png" alt="" class="img-responsive"><br/>
+        </div>
         <h4>未完待续~~~</h4>
     </div>
 </body>
