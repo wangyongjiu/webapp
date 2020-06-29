@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>大数据学习</title>
+    <link href="../../lib/bootstrap/css/bootstrap.css"" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/index/index.css">
+    <!--[if lt IE 9]>
+        <script src="../lib/html5shiv/html5shiv.min.js"></script>
+        <script src="../lib/respond/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body style="background-image: url('../../images/bg.gif');">
+    <div class="container">
+        <h3>大数据学习</h3>
+        <div class="well">
+            <b>1、什么是大数据技术</b><br/>
+            大数据技术就是一个针对含量数据处理的编程技术，<br/>
+            核心技术：分布式存储和分布式运算，<br/>
+            <b>2、大数据用来干什么</b><br/>
+            比如电商： 分析用户浏览、购物行为，分析规律，挖掘价值<br/>
+            比如金融：征信分析；运营分析<br/>
+            比如今日头条：提供个性化的内容服务（靠的也是数据分析（语义分析））<br/>
+            只要有数据分析需求的场景，就可以用大数据技术来解决<br/>
+            <b>3、大数据技术领域的核心技术组件</b><br/>
+            hadoop技术生态<br/>
+            spark技术生态<br/>
+            flink技术生态<br/>
+        </div>
+        <div class="well">
+            hadoop是一套大数据技术组件，包含3大黑犀牛组件：<br/>
+            1、HDFS hadoop分布式文件系统<br/>
+                (1)、解决的是分布式系统中的文件存储问题<br/>
+                (2)、它本质上是体哦概念股一套跨机器的文件管理（读、存、查询）服务<br/>
+            2、MapReduce hadoop的分布式运算程序编程框架<br/>
+                (1)、解决的问题是：降低分布式运算开发难度，提高开发效率<br/>
+            3、yarn hadoop的分布式运算资源调度系统<br/>
+                (1)、解决的问题是：分布式运算程序的启动、资源调度、资源回收<br/>
+            hadoop也有大量外国组件，解决不同的其他问题<br/>
+            1、Hive 是一个基于HDFS和MapReduce的sql工具<br/>
+            2、Hbase 是一个基于HDFS实现的分布式nosql数据库<br/>
+            3、Flume 是一个分布式日志采集系统<br/>
+            4、sqoop 是一个数据迁移工具( 关系型数据库 <--->  hadoop存储系统 )<br/>
+        </div>
+        <div class="well">
+            <b>HDFS的一些概念</b><br/>
+            HDFS是一个分布式文件系统（管理系统；提供文件的读取服务、写入服务、查看目录信息服务）<br/>
+            HDFS的核心工作机制：<br/>
+                HDFS是一套分布式软件系统，里面有多个服务角色；namenode;secondary namenode; datanode;客户端<br/>
+                文件在HDFS中是分块存储的，一个文件会被分成多个快（默认按128M分块），每个块“随机”存储在集群中的某个datanode上<br/>
+                每个块都有一个唯一的块ID；<br/>
+                每个块在HDFS中都可以存储多个副本！（默认3个副本）<br/>
+                namenode负责管理元数据（hdfs系统的目录，每个文件的具体路径、块信息、物理存储信息、副本数量），并为客户端提供查询服务。<br/>
+                datanode负责管理文件块（帮客户端存储块，帮客户端读取块）<br/>
+        </div>
+        <div class="well">
+            <b>HDFS集群的安装部署</b><br/>
+            核心参数解释：<br/>
+                （1）datanode的块存储目录（机器本地目录）<br/>
+                （2）namenode的rpc通讯地址<br/>
+                （3）namenode的元数据持久化存储目录（机器本地目录）<br/>
+        </div>
+        <div class="well">
+            <b>步骤：</b><br/>
+            1、
+            2、
+            3、
+        </div>
+
+
+
+        <!-- <div>
+            <img src="../../images/index/natural/1.png" alt="" class="img-responsive"><br/>
+        </div> -->
+        <h4>未完待续~~~</h4>
+    </div>
+</body>
+</html>
