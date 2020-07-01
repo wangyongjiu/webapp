@@ -67,9 +67,14 @@
             1、准备linux机器（4台）<br/>
             2、准备环境：<br/>
                 （1）主机名<br/>
+                    vi /etc/sysconfig/network<br/>
                 （2）ip地址<br/>
+                    vi /etc/sysconfig/network-scripts/ifcfg-eth0<br/>
                 （3）hosta映射<br/>
+                    vi /etc/hosts<br/>
                 （4）防火墙<br/>
+                    service iptables stop<br/>
+                    chkconfig iptables off<br/>
                 （5）jdk安装<br/>
                 （6）ssh免密配置（方便自己登录，真实中最好设置）<br/>
             3、
