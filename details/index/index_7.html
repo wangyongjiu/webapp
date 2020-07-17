@@ -83,7 +83,6 @@
                     然后 拷贝jdk目录，/etc/profile文件 到别的机器（别的机器己得source /etc/profile ）<br/>
                 （6）ssh免密配置（方便自己登录，真实中最好设置）<br/>
                     ssh-keygen 命令一路回车，然后 ssh-copy-id c6-01 然后输入密码 ssh-copy-id c6-02 输入密码，把其他的设置完成<br/>
-                    /hadoop/etc/slaves 文件是 start-dfs.sh 运行时会查找这个slaves文件中的配置,在这里就可以配置启动哪些机器的datanode（这里描述的可能不太详细）<br/>
                     如果没有scp命令：“yum install openssh.x86_64 openssh-clients.x86_64 -y”<br/>
             3、上传hadoop安装包并解压:<br/>
                 tar -zxvf hadoop-2.8.5.tar.gz  -C /opt/apps/<br/>
@@ -103,6 +102,10 @@
                     <property>
                     <name>dfs.namenode.rpc-address</name>
                     <value>c6-01:9000</value>
+                    </property>
+                    <property>
+                    <name>dfs.namenode.secondary.http-address</name>
+                    <value>c6-02:50090</value>
                     </property><br/>
                     <b>自动创建数据存储目录</b>
             5、将配置好的hadoop安装目录，拷贝给其他目录<br/>
@@ -117,7 +120,8 @@
                 其他机器<br/>
                 hadoop-daemon.sh start datanode<br/>
                 查看监听了哪些端口：netstat -nltp<br/>
-            
+                其实，批量管理脚本hadoop安装包中自带，sbin/start-dfs.sh sbin/stop-dfs.sh 
+                只不过，用这两个脚本，需要提前配置免密登录，以及配置文件 etc/hadoop/slaves ; datanode的主机名<br/>
         </div>
         <div class="well">
             <h5><b>HDFS的使用</b></h5>
@@ -127,7 +131,6 @@
             2、命令行客户端，hdfs dfs 命令启动客户端，可以用来查看集群信息、运维集群、文件系统的操作！<br/>
 
         </div>
-
         <div class="well">
             <h5><b>HDFS操作</b></h5>
             放文件操作：
@@ -135,10 +138,6 @@
             取文件操作：
             <b>hdfs dfs -get hdfs://c6-01:9000/hadoop-2.8.5.tar.gz /root/</b>: 将存在hdfs文件下的文件（hadoop-2.8.5.tar.gz）取到root文件下（/root/）<br/>
             
-
-
-
-
         </div>
 
 
