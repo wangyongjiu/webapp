@@ -150,6 +150,10 @@
             下载文件：<b>hdfs dfs -get /a.txt /opt/</b><br>
             删除文件：<b>hdfs dfs -rm -r /xxx</b><br>
             移动文件：<b>hdfs dfs -mv /a.txt /xxx/</b><br>
+            追加内容到已存的文件：<b>hadoop fs -appendToFile a.txt /xxx/zzz</b><br>
+            查看（文本）文件的内容：<b>hadoop fs -cat /xxx/a.txt</b><br>
+            实时监控文件末尾新增内容：<b>hadoop fs -tail -f /xxx/zzz</b><br>
+            如果需要查看一个比较大的文件内容，可以通过linux的管道命令：<b>hadoop fs -cat/xxx/big.txt | less</b><br>
             
         </div>
 
