@@ -120,7 +120,7 @@
                 其他机器<br/>
                 hadoop-daemon.sh start datanode<br/>
                 查看监听了哪些端口：netstat -nltp<br/>
-                其实，批量管理脚本hadoop安装包中自带，sbin/start-dfs.sh sbin/stop-dfs.sh 
+                其实，批量管理脚本hadoop安装包中自带，<b>sbin/start-dfs.sh sbin/stop-dfs.sh</b> 
                 只不过，用这两个脚本，需要提前配置免密登录，以及配置文件 etc/hadoop/slaves ; datanode的主机名<br/>
         </div>
         <div class="well">
@@ -129,17 +129,29 @@
             客户端最常用的有3种：<br/>
             1、web客户端，可以用来查看集群状态信息，还可以浏览目录信息<br/>
             2、命令行客户端，hdfs dfs 命令启动客户端，可以用来查看集群信息、运维集群、文件系统的操作！<br/>
-
         </div>
         <div class="well">
             <h5><b>HDFS操作</b></h5>
-            放文件操作：
-            <b>hdfs dfs -put ./hadoop-2.8.5.tar.gz hdfs://c6-01:9000/</b> : 将本地目录下的xxx文件（./xxx）存放到c6-01下的hdfs文件目录下（hdfs://c6-01:9000/）<br/>
+            存入一个文件到HDFS：
+            <b>hdfs dfs -put   ./hadoop-2.8.5.tar.gz   hdfs://c6-01:9000/</b> : 将本地目录下的xxx文件（./xxx）存放到c6-01下的hdfs文件目录下（hdfs://c6-01:9000/）<br/>
+            客户端有一个参数，用来指定需要访问的目标文件系统（它的默认值是file:/// 表示本地文件系统）,在core-site.xml文件中,然后就替换其他机器的次文件<br/>
+            <property><br/>
+                <name>fs.defaultFS</name><br/>
+                <value>hdfs://c6-01:9000</value><br/>
+            </property><br/>
+            <b>这个配置文件修改成hdfs文件系统的URI</b><br/>
             取文件操作：
-            <b>hdfs dfs -get hdfs://c6-01:9000/hadoop-2.8.5.tar.gz /root/</b>: 将存在hdfs文件下的文件（hadoop-2.8.5.tar.gz）取到root文件下（/root/）<br/>
+            <b>hdfs dfs -get   hdfs://c6-01:9000/hadoop-2.8.5.tar.gz   /root/</b>: 将存在hdfs文件下的文件（hadoop-2.8.5.tar.gz）取到root文件下（/root/）<br/>
+        </div>
+        <div class="well">
+            查看目录：<b>hdfs dfs -ls /</b><br>
+            创建目录：<b>hdfs dfs -mkdir /aaa  </b> 在hdfs文件系统中生成aaa文件夹<br/>
+            上传文件：<b>hdfs dfs -put /本地 / </b><br/>
+            下载文件：<b>hdfs dfs -get /a.txt /opt/</b><br>
+            删除文件：<b>hdfs dfs -rm -r /xxx</b><br>
+            移动文件：<b>hdfs dfs -mv /a.txt /xxx/</b><br>
             
         </div>
-
 
 
 
