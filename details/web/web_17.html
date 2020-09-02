@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue实现返回上一页面，页面停留在原来位置，不刷新</title>
+    <link href="../../lib/bootstrap/css/bootstrap.css"" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/index/index.css">
+    <!--[if lt IE 9]>
+        <script src="lib/html5shiv/html5shiv.min.js"></script>
+        <script src="lib/respond/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body style="background-image: url('../../images/bg.gif');">
+    <div class="container">
+        <h3>vue实现返回上一页面，页面停留在原来位置，不刷新</h3>
+        <div class="well">
+            有时候会有这种情况。从列表页面进入详情页面，然后点击返回的时候，我们的接口会重新调用，页面也会跑到顶部，
+            这样用户体验是很不好的，每次用户都得从上往下从新翻，下面就给大家介绍如何解决这种问题
+        </div>
+        <div class="well">
+            <h4>1.路由配置</h4>
+        </div>
+        <div>
+            <img src="../../images/web/17/1.png" alt="" class="img-responsive"><br/>
+        </div>
+        <div class="well">
+            <h4>2.配置App.vue文件种的 < router-view /> </h4>
+        </div>
+        <div>
+            <img src="../../images/web/17/2.png" alt="" class="img-responsive"><br/>
+        </div>
+        <div class="well">
+            <h4>3.使用this.$router.back()返回</h4>
+        </div>
+        <div>
+            <img src="../../images/web/17/3.png" alt="" class="img-responsive"><br/>
+        </div>
+
+        <p>未完待续~~~</p>
+    </div>
+</body>
+</html>
