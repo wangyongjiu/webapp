@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VScode配置让ts文件自动编译为js文件</title>
+    <link href="../../lib/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/index/index.css">
+    <!--[if lt IE 9]>
+        <script src="lib/html5shiv/html5shiv.min.js"></script>
+        <script src="lib/respond/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body style="background-image: url('../../images/bg.gif');">
+    <div class="container">
+        <h3>VsCode配置让 ts 文件自动编译为 js文件</h3>
+        <div style="margin: 20px 0 20px 0;">
+            <h4>1、创建 tsconfig.json 文件
+                在 ts 文件的目录下，运行如下命令，即可创建 tsconfig.json 文件 
+            </h4>
+        </div>
+        <div class="well">
+            tsc --init
+        </div>
+        <div>
+            如图：
+        </div>
+        <div>
+            <img src="../../images/web/18/1.png" alt="" class="img-responsive"><br/>
+        </div>
+        <div>
+            <h4>2、修改 tsconfig.json 文件，设置 js 文件输出路径： "outDir":"./js/"</h4>
+        </div>
+        <div>
+            如图：
+        </div>
+        <div>
+            <img src="../../images/web/18/2.png" alt="" class="img-responsive"><br/>
+        </div>
+        <div>
+            <h4>3、设置 VsCode 监视任务</h4>
+        </div>
+        <div>
+            1）选择 “终端” -> “运行任务”， 如图：
+        </div>
+        <div>
+            <img src="../../images/web/18/3.png" alt="" class="img-responsive"><br/>
+        </div>
+        <div>
+            选择 “tsc:监视 ../tsconfig.json ”，这样保存 ts 文件之后，vscode就会帮我们自动编译成 js 了
+        </div>
+        <div>
+            <img src="../../images/web/18/4.png" alt="" class="img-responsive"><br/>
+        </div>
+
+
+
+        <p>未完待续~~~</p>
+    </div>
+</body>
+</html>
