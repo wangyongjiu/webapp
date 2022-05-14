@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>linux系统搭建mysql数据库</title>
+    <link href="../../lib/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/index/index.css">
+    <!--[if lt IE 9]>
+        <script src="lib/html5shiv/html5shiv.min.js"></script>
+        <script src="lib/respond/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div class="container">
+        <h3></h3>
+        <h4>一、检查以前是否安装过MySql</h4>
+        <div class="well">
+            因为cnetos7一般默认安装mariadb，所以要检查mysql或者mariadb是否安装<br>
+            rpm -pa | grep -i mysqlrpm -pa | grep -i mariadb <br>
+            <img src="../../images/java/4/1.png" alt="" class="img-responsive"><br/>
+        </div>
+        <h4>二、发现有的话就都卸载</h4>
+        <div class="well">
+            rpm -e --nodeps 需要卸载的文件名
+        </div>
+
+        <h4>三、删除老版本MySQL的开发头文件和库</h4>
+        <div class="well">
+            rm -rf  /etc/my.cnfrm -rf  /var/lib/mysql <br>
+            注意：卸载后/var/lib/mysql中的数据及/etc/my.cnf不会删除，确定没用后就收工删除<br>
+        </div>
+        <h4>四、准备安装包</h4>
+        <div class="well">
+            可以根据自己的需要选择自己版本的安装包，一般企业用的是5.7+以上的版本，所以我这里下载的是5.7.2的版本，官方下载:https://downloads.mysql.com/archives/community/
+
+            我是自己手动下载之后再上传到虚拟机服务器，同志们也可以根据wget进行下载，各取所需
+
+            解压压缩包 <br>
+            tar -xvf mysql-5.7.20-1.el7.x86_64.rpm-bundle.tar<br>
+            <img src="../../images/java/4/2.png" alt="" class="img-responsive"><br/>
+            <img src="../../images/java/4/3.png" alt="" class="img-responsive"><br/>
+        </div>
+        <h4>五、安装相应的依赖包</h4>
+        <div class="well">
+            yum install perlyum install net-tools
+        </div>
+        <h4>六、安装Client & Server</h4>
+        <div class="well">
+            依次执行下列命令进行安装：<br>
+            rpm -ivh mysql-community-common-5.7.20-1.el7.x86_64.rpmrpm -ivh mmysql-community-libs-5.7.20-1.el7.x86_64.rpmrpm -ivh mysql-community-client-5.7.20-1.el7.x86_64.rpmrpm -ivh mysql-community-server-5.7.20-1.el7.x86_64.rpm
+        </div>
+        <h4>七、开启MySql服务</h4>
+        <div class="well">
+            <h5>1、查看mysql服务状态：</h5>
+            systemctl status mysqldservice mysql status<br>
+            <img src="../../images/java/4/4.png" alt="" class="img-responsive"><br/>
+            <h5>2、启动mysql</h5>
+            <div>
+                -- 启动systemctl start mysqld-- 重启systemctl restart mysqld<br>
+                <img src="../../images/java/4/5.png" alt="" class="img-responsive"><br/>
+            </div>
+        </div>
+        <h4>八、登录</h4>
+        <div class="well">
+            1、免密码登录设置，修改配置文件 vi /etc/my.cnf ,找到 [mysqld] ,在下面一行添加 skip-grant-tables ，然后":wq"保存<br>
+            <img src="../../images/java/4/6.png" alt="" class="img-responsive"><br/>
+            <h5>2、重启mysql 服务 systemctl restart mysqld 然后 输入命令 mysql</h5>
+            <div>
+                如下图说明登录成功<br>
+                <img src="../../images/java/4/7.png" alt="" class="img-responsive"><br/>
+            </div>
+            <h5>3、选择当前数据库 use mysql;</h5>
+            <img src="../../images/java/4/8.png" alt="" class="img-responsive"><br/>
+            <h5>4、修改root密码</h5>
+            <div>
+                update user set authentication_string=PASSWORD(新密码) where user='root';
+            </div>
+            <h5>5、刷新权限</h5>
+            <div>
+                flush privileges;
+            </div>
+            <h5>6、编辑配置文件/etc/my.cnf 取消 skip-grant-tables</h5>
+            <h5>7、重启mysql服务 再次登录 mysql -uroot -p回车，输入刚刚修改的密码然后回车</h5>
+            <img src="../../images/java/4/9.png" alt="" class="img-responsive"><br/>
+        </div>
+        <h4>九、设置root用户允许远程连接</h4>
+        <div class="well">
+            GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '密码' WITH GRANT OPTION;<br><br>
+            flush privileges;<br>
+            <img src="../../images/java/4/10.png" alt="" class="img-responsive"><br/>
+        </div>
+        <h4>十、查看防火墙信息并开放端口</h4>
+        <div class="well">
+            前面步骤都执行完之后，就是要开启防火墙并开通mysql 默认端口3306，傻瓜式执行下面几个命令就行，不要问我为什么，执行就完事<br>
+            1、查看防火墙状态systemctl status firewalld2、如果不是显示active状态，需要打开防火墙systemctl start firewalld3、查看所有已开放的临时端口（默认为空）firewall-cmd --list-ports4、 查看所有永久开放的端口（默认为空）firewall-cmd --list-ports --permanent5、添加永久开放的端口（例如：3306端口）firewall-cmd --add-port=3306/tcp --permanent6、配置结束后需要输入重载命令并重启防火墙以生效配置firewall-cmd --reloadsystemctl restart firewalld
+        </div>
+        <h4>十一、远程登录连接</h4>
+        <div class="well">
+            我使用的是Navicat Premium 16工具进行连接的
+        </div>
+        <h4>十二、修改数据库的默认编码 和执行引擎</h4>
+        <div class="well">
+            <h5>1、先登录查看，数据库的字符编码，命令 ：show variables like '%char%';</h5>
+            <img src="../../images/java/4/11.png" alt="" class="img-responsive"><br/>
+            <h5>2、修改配置文件 /ect/my.cnf,将如下配置添加到配置文件</h5>
+            <div>
+                [mysqld]lower_case_table_names = 1 # 配置表明不区分大小写 1不区分，0区分character-set-server = utf8 # 设置默认编码为utf8init_connect = 'SET NAMES utf8'max_connections = 1024 # 最大连接数default-storage-engine = INNODBcollation-server = utf8_general_ci[client]default-character-set=utf8 # 设置默认编码为utf8
+            </div>
+            <img src="../../images/java/4/12.png" alt="" class="img-responsive"><br/>
+        </div>
+
+
+        <div class="well">
+            <h4>总结</h4>
+            <div>
+                1.主要是在官网下载linux版本的tar包 --->  mysql-5.7.20-1.el7.x86_64.rpm-bundle.tar
+                2.安装相应的依赖yum install perlyum install net-tools
+                3.安装mysql解压出来的client和server以及libs、common包
+                4.启动mysql  --->  systemctl start mysqld
+                5.修改配置文件vi /etc/my.cnf 添加skip-grant-tables进行免密登录
+                6.之后修改数据库密码 --->  update user set authentication_string=PASSWORD(新密码) where user='root';
+                7.允许远程连接 --->  GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '密码' WITH GRANT OPTION;
+                <div>
+                    注意：每次修改配置文件时要重启数据库
+                </div>
+            </div>
+        </div>
+        <h4>未完待续~~~</h4>
+    </div>
+</body>
+</html>
